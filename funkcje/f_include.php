@@ -53,5 +53,3 @@ function dolacz_plik($nazwa_zmiennej_get, $domyslny_plik)
         echo('Zmienna <b>$_GET["'.$nazwa_zmiennej_get.'"];</b><br>');
     }
 }
-
-?>

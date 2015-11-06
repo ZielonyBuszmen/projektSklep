@@ -1,9 +1,16 @@
 <?php session_start(); 
-    //rozpoczęcie sesji 
 // Glówny plik index.php
+    // połączenie z bazą danych
+    require_once("baza/polaczenie.php");
     // Dołączanie plików z funkcjami
     // f_include zawiera funkcje dołączające pliki do strony
     require_once("funkcje/f_include.php");
+    // f_logowanie zawiera funkcje umożliwiające logowanie i wylogowywanie uzytkownika
+    require_once("funkcje/f_logowanie.php");
+    // f_komunikaty zawiera funkcje wyświetlajace komunikaty o błedach itp
+    require_once("funkcje/f_komunikaty.php");
+    // f_przyciski zawiera funkcje wyświetlajace przyciski
+    require_once("funkcje/f_przyciski.php");
     
 ?>
 <!DOCTYPE html>
