@@ -2,51 +2,13 @@
  * Bootstrap v3.3.5 (http://getbootstrap.com)
  * Copyright 2011-2015 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- *
- * Custom Bootstrap CSS | Nie kopiować, i tak nie zadziała
- * l - css dla paneli logowania, rejestracji, odzyskiwania hasła (wszystko przed zalogowaniem)
- * z - css dla paneli po zalogowaniu: strona glowna, panele itp.
  */
-#z_lista_lekcji_lewa {
-    padding-right: 10px;
+/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+
+#naglowek {
+    margin-top: 50px;
 }
-#z_lista_lekcji_prawa {
-    padding-left: 10px;
-}
-#z_panel_menu_lewe {
-    padding-right: 10px;   
-}
-#z_panel_tresc_prawa {
-    padding-left: 10px;     
-}
-#z_panel_calosc {
-    padding: 20px;
-}
-#z_strona_glowna_lewa {
-    padding-right: 10px;
-}
-#z_strona_glowna_prawa {
-    padding-left: 10px;
-}
-#l_panel_lewy {
-    padding-left: 20px;
-    padding-right: 10px;
-}
-#l_panel_prawy {
-    padding-left: 10px;
-    padding-right: 20px;
-    float: right;
-}
-#l_button_lewy {
-    float:left;
-    width: 200px;
-    margin-left: 50px;
-}
-#l_button_prawy {
-    float: right;
-    width: 200px;
-    margin-right: 50px;
-}
+
 html {
   font-family: sans-serif;
   -webkit-text-size-adjust: 100%;
@@ -1129,8 +1091,7 @@ body {
   font-size: 14px;
   line-height: 1.42857143;
   color: #333;
-  background-image: url('../../img/tlo.jpg');
-  background-attachment: fixed;
+  background-color: #fff;
 }
 input,
 button,
@@ -1141,12 +1102,12 @@ textarea {
   line-height: inherit;
 }
 a {
-  color: black;
+  color: #337ab7;
   text-decoration: none;
 }
 a:hover,
 a:focus {
-  color: #27ae60;
+  color: #23527c;
   text-decoration: underline;
 }
 a:focus {
@@ -1267,7 +1228,7 @@ h2,
 .h2,
 h3,
 .h3 {
-  margin-top: 0px;
+  margin-top: 20px;
   margin-bottom: 10px;
 }
 h1 small,
@@ -1627,8 +1588,8 @@ pre code {
   overflow-y: scroll;
 }
 .container {
-  //padding-right: 15px;
-  //padding-left: 15px;
+  padding-right: 15px;
+  padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
 }
@@ -1656,12 +1617,12 @@ pre code {
 .row {
   margin-right: -15px;
   margin-left: -15px;
-  background-color: white;
-  border-radius: 8px;
 }
 .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
   position: relative;
   min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
 }
 .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
   float: left;
@@ -2000,7 +1961,7 @@ pre code {
     width: 58.33333333%;
   }
   .col-md-6 {
-    width: 50%;  
+    width: 50%;
   }
   .col-md-5 {
     width: 41.66666667%;
@@ -4067,7 +4028,6 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   padding-left: 0;
   margin-bottom: 0;
   list-style: none;
-  padding-right: 10px;
 }
 .nav > li {
   position: relative;
@@ -4081,8 +4041,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav > li > a:hover,
 .nav > li > a:focus {
   text-decoration: none;
-  background-color: #bdc3c7;
-  color: #2C3E50;
+  background-color: #eee;
 }
 .nav > li.disabled > a {
   color: #777;
@@ -4190,8 +4149,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav-pills > li.active > a,
 .nav-pills > li.active > a:hover,
 .nav-pills > li.active > a:focus {
-  color: white;
-  background-color: #2C3E50;
+  color: #fff;
+  background-color: #337ab7;
 }
 .nav-stacked > li {
   float: none;
@@ -4262,11 +4221,10 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   min-height: 50px;
   margin-bottom: 20px;
   border: 1px solid transparent;
-  height: 65px;
 }
 @media (min-width: 768px) {
   .navbar {
-    border-radius: 0px;
+    border-radius: 4px;
   }
 }
 @media (min-width: 768px) {
@@ -4368,8 +4326,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar-brand {
   float: left;
-  height: 60px;
-  padding: 0px 0px;
+  height: 50px;
+  padding: 15px 15px;
   font-size: 18px;
   line-height: 20px;
 }
@@ -4588,27 +4546,26 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   }
 }
 .navbar-default {
-    background-color: #2C3E50;
-    border-color: #e7e7e7;
+  background-color: #f8f8f8;
+  border-color: #e7e7e7;
 }
 .navbar-default .navbar-brand {
-  color: white;
+  color: #777;
 }
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
-  color: white;
+  color: #5e5e5e;
   background-color: transparent;
 }
 .navbar-default .navbar-text {
   color: #777;
 }
 .navbar-default .navbar-nav > li > a {
-  color: #ecf0f1;
-  height: 60px;
+  color: #777;
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
-  color: #ecf0f1;
+  color: #333;
   background-color: transparent;
 }
 .navbar-default .navbar-nav > .active > a,
@@ -5094,8 +5051,8 @@ a.badge:focus {
 }
 .thumbnail {
   display: block;
-  padding: 10px;
-  margin-bottom: 10px;
+  padding: 4px;
+  margin-bottom: 20px;
   line-height: 1.42857143;
   background-color: #fff;
   border: 1px solid #ddd;
@@ -5115,15 +5072,14 @@ a.thumbnail.active {
   border-color: #337ab7;
 }
 .thumbnail .caption {
-  padding: 0px;
+  padding: 9px;
   color: #333;
 }
 .alert {
-  padding: 10px;
-  margin-top: 0px;
+  padding: 15px;
+  margin-bottom: 20px;
   border: 1px solid transparent;
   border-radius: 4px;
-  font-size: 18px;
 }
 .alert h4 {
   margin-top: 0;
