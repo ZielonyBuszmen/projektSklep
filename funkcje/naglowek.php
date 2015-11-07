@@ -3,7 +3,8 @@
 ?>
 <div class="row" style="margin-bottom: 50px;">
  <nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container-fluid">
+     
+  <div class="container">
     <div class="navbar-header">
         <a class="navbar-brand" href="index.php">Projekt Sklep</a>
     </div>

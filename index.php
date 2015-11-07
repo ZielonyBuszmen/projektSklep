@@ -11,6 +11,8 @@
     require_once("funkcje/f_komunikaty.php");
     // f_przyciski zawiera funkcje wyświetlajace przyciski
     require_once("funkcje/f_przyciski.php");
+    // f_produkty zawiera funkcje wyświetlające produkty z bazy
+    require_once("funkcje/f_produkty.php");
     
 ?>
 <!DOCTYPE html>
