@@ -23,6 +23,8 @@
     </form>
     <ul class="nav navbar-nav navbar-right">
     <?php
+    // przycisk KOSZYK z menu rozwijanym
+    w_pokaz_koszyk_dropdown();
     // jeżeli NIE zalogowano
         if (!zalogowany())
         {      

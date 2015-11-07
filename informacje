@@ -1,2 +1,12 @@
 Plik z informacjami
 
+Zmienne sesyjne
+
+    KOSZYK
+    Tablica zawierająca id przedmiotów w koszyku:
+    W środku index 0 oznacza kolejny produkt z listy
+    $_SESSION['koszyk'][0]['id_produktu']; - id produktu
+    $_SESSION['koszyk'][0]['nazwa']; - nazwa produktu
+    $_SESSION['koszyk'][0]['cena']; - cena produktu
+    $_SESSION['koszyk'][0]['ilosc']; - ilosc przedmiotu danego typu w koszyku
+

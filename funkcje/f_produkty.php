@@ -9,13 +9,13 @@ function w_produkt_kafelek($id)
     echo '<div class="thumbnail">'
           .'<div class="caption">'
           .'';
-          $wynik = mysql_query("SELECT * FROM `magazyn` WHERE id_produktu={$id}");
-        while($r = mysql_fetch_assoc($wynik)) 
-        {
-            echo "<img src='{$folder_obrazkow}/{$r['obrazek']}' height='{$height}'><br>";
-            echo "<center><a>{$r['nazwa']}</a></center>";
-            echo "<center>{$r['cena']} zł</center>";
-        }
+    $wynik = mysql_query("SELECT * FROM `magazyn` WHERE id_produktu={$id}");
+    while($r = mysql_fetch_assoc($wynik)) 
+    {
+        echo "<img src='{$folder_obrazkow}/{$r['obrazek']}' height='{$height}'><br>";
+        echo "<center><a href='?v=tresc/karta_produktu/karta_produktu&id_produktu={$r['id_produktu']}'>{$r['nazwa']}</a></center>";
+        echo "<center>{$r['cena']} zł</center>";
+    }
      
     echo '</div>'
           .'</div>';

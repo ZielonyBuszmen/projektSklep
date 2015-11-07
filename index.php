@@ -13,6 +13,8 @@
     require_once("funkcje/f_przyciski.php");
     // f_produkty zawiera funkcje wyświetlające produkty z bazy
     require_once("funkcje/f_produkty.php");
+    // f_koszyk zawiera funkcje do obsługi i wyświetlania koszyka
+    require_once("funkcje/f_koszyk.php");
     
 ?>
 <!DOCTYPE html>

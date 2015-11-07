@@ -30,10 +30,28 @@
         if ($i % 3 == 0) echo '</div><div class="row">';
     }
     echo '</div>';
+    ?>
     
-    
+    <h3> Tymczasowe menu z linkami</h3>
+    <a href="?v=tresc/karta_produktu/karta_produktu">?v=karta_produktu/karta_produktu</a>
+    <br>
+    <a href=""></a>
+    <br>
+    <a href=""></a>
+    <br>
+    <a href=""></a>
+    <?php
     echo '<br><br><hr>';
-    for ($i = 0; $i <100; $i++) echo "Rów melioracyjny <br>";
+    for ($i = 0; $i <20; $i++) echo "Rów melioracyjny <br>";
+    
+    
+    // dodanie przykładowych danych do koszyka
+    // dodaj_do_koszyka(2);
+    // dodaj_do_koszyka(4);
+    
+    echo "<hr>Liczba rzeczy w koszyku: ";
+    echo sprawdz_liczbe_w_koszyku();
+    
     ?>
 </div>
 </div> 
