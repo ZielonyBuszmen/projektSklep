@@ -41,9 +41,9 @@ CREATE TABLE IF NOT EXISTS `magazyn` (
 
 INSERT INTO `magazyn` (`id_produktu`, `nazwa`, `cena`, `obrazek`, `ilosc`, `opis`) VALUES
 (1, 'Pumpernikiel', '20', 'pumpernikiel.jpeg', 5, 'Dobry chlebek, mniem mniem mniam'),
-(2, 'Pumpernikiel', '20', 'pumpernikiel.jpeg', 5, 'Dobry chlebek, mniem mniem mniam'),
-(3, 'Pumpernikiel', '20', 'pumpernikiel.jpeg', 5, 'Dobry chlebek, mniem mniem mniam'),
-(4, 'Pumpernikiel', '20', 'pumpernikiel.jpeg', 5, 'Dobry chlebek, mniem mniem mniam');
+(2, 'Bleee', '20', '2.jpg', 2, 'Dobry chlebek, mniem mniem mniam'),
+(3, 'asdasdasd', '20', '3.jpg', 11, 'Dobry chlebek, mniem mniem mniam'),
+(4, 'Pumpernikiel', '20', 'pumpernikiel.jpeg', 70, 'Dobry chlebek, mniem mniem mniam');
 
 --
 -- Indeksy dla zrzutów tabel

@@ -12,7 +12,7 @@ function w_pokaz_koszyk_dropdown()
     
     // wyświetlenie produktów w koszyku
     // jeśli koszyk pusty, wyświetlamy że koszyk jest pusty
-    if(!isset($_SESSION['koszyk']) || $_SESSION['koszyk'][0]['id_produktu']=="")
+    if(!isset($_SESSION['koszyk']) || @$_SESSION['koszyk'][0]['id_produktu']=="")
     {
         echo '<li><a>Koszyk pusty!</a></li>';
     }
@@ -77,6 +77,7 @@ function ilosc_danego_produktu_w_koszyku($id_produktu)
 
 
 // funkcja dodaje produkt do koszyka
+// zwraca TRUE, jeśli dodawanie się powiedzie. W przeciwnym wypadku FALSE
 function dodaj_do_koszyka($id_produktu)
 {   // sprawdzamy najpierw, czy uda nam się dodać produkt do koszyka
     if(sprawdz_czy_mozna_dodac($id_produktu)==TRUE)
@@ -88,7 +89,7 @@ function dodaj_do_koszyka($id_produktu)
             if ($_SESSION['koszyk'][$i]['id_produktu'] == $id_produktu) // sprwaedzamy, czy istnieje już taki produkt w koszyku
             { 
                 echo $_SESSION['koszyk'][$i]['ilosc']++; // jeśli tak, zwiększzamy jego ilość i wychodzimy z funkcji
-                return;
+                return TRUE;
             }
         }
         
@@ -107,6 +108,30 @@ function dodaj_do_koszyka($id_produktu)
             $_SESSION['koszyk'][$indeks]['ilosc'] = 1;
             // ETC ETC
             // mozemy dodać dalsze zmienne, jakie mają być przechowywane
+            return TRUE;
         }
-    }   
+    }
+    // gdy dodawanie się nie powiodło, zwracamy FALSE
+    return FALSE;
+}
+
+// usuwamy produkt z koszyka
+function usun_z_koszyka($id_produktu)
+{ 
+    //unset($_SESSION['koszyk'][$id_produktu]);
+  // ŹLE DZIAŁA, TRZEBA POMYSLEC, JAK TO ZROBIC
+    
+}
+
+// zwraca sumę wartości przedmiotów w koszyku
+function koszyk_suma()
+{
+    $suma = 0;
+    // przechodzi przez wszyskie elementy koszyka
+    foreach($_SESSION['koszyk'] as $idd)
+    {
+        $wiersz = $idd['cena']*$idd['ilosc']; // mnoży cenę i ilość, przypisuje do wiersza
+        $suma += $wiersz; // wiersz jest dodawany do całościowej sumy
+    }     
+    return $suma;
 }

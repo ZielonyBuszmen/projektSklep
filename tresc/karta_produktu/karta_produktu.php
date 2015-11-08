@@ -4,7 +4,11 @@
 // komunikat po dodaniu produktu do koszyka
     if (isset($_GET['dodano_do_koszyka']) && $_GET['dodano_do_koszyka']=="tak")
     {
-        komunikat ("Produkt został pomyślnie dodany do koszyka", "success");
+        komunikat ("Produkt został pomyślnie dodany do koszyka.", "success");
+    }
+    else if (isset($_GET['dodano_do_koszyka']) && $_GET['dodano_do_koszyka']=="nie")
+    {
+        komunikat ("Przedmiot nie może zostać dodany do koszyka. (Nie ma więcej w magazynie)", "warning");
     }
 
 
