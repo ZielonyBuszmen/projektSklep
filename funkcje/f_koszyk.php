@@ -37,7 +37,7 @@ function w_pokaz_koszyk_dropdown()
 // jeśli przedmiot jest na stanie - funkcja zwraca TRUE
 function sprawdz_czy_mozna_dodac($id_produktu)
 {   // pobieramy odpowiedni produkt z bazy
-    $wynik = mysql_query("SELECT * FROM `magazyn` WHERE id_produktu={$id_produktu}");
+    $wynik = mysql_query("SELECT * FROM `produkty` WHERE id_produktu={$id_produktu}");
     while($r = mysql_fetch_assoc($wynik)) 
     {   // przypisujemy ilość produktu do zmiennej ilosc
         $ilosc = $r['ilosc'];
@@ -99,7 +99,7 @@ function dodaj_do_koszyka($id_produktu)
         $indeks = sprawdz_liczbe_w_koszyku();
         
         // zapytanie do bazy, by pobrac info o przedmiotach wrzucanych do koszyka
-        $wynik = mysql_query("SELECT * FROM `magazyn` WHERE id_produktu={$id_produktu}");
+        $wynik = mysql_query("SELECT * FROM `produkty` WHERE id_produktu={$id_produktu}");
         while($r = mysql_fetch_assoc($wynik)) 
         {   // przypisujemy dane do zmiennych sesyjnych koszyka
             $_SESSION['koszyk'][$indeks]['id_produktu'] = $id_produktu;

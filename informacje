@@ -1,12 +1,38 @@
 Plik z informacjami
 
 Zmienne sesyjne
+  LOGOWANIE
+    $_SESSION['zalogowany']; - przechowuje TRUE, jeśli uzytkownik jest zalogowany
+    $_SESSION['login']; - przechowuje login użytkownika (o ile się zalogował)
+    $_SESSION['typ']; - przechowuje typ (rangę) użytkownika (u - zwkłt klient, p - pracownik, blocked - zablokowany)
+    $_SESSION['id_usera']; - przechowuje ID użytkownika (z bazy danych)
+    $_SESSION['imie']; - imie użytkownika
+    $_SESSION['nazwisko']; - nazwisko użytkownika
+    $_SESSION['email']; - email użytkownika
+    $_SESSION['adres']; - adres zamieszkania użytkownika
+    $_SESSION['miasto']; - miasto, w którym użytrkownik mieszka
 
-    KOSZYK
-    Tablica zawierająca id przedmiotów w koszyku:
-    W środku index 0 oznacza kolejny produkt z listy
+  KOSZYK
+   Tablica zawierająca id przedmiotów w koszyku:
+   W środku (index) 0 oznacza kolejny produkt z listy
     $_SESSION['koszyk'][0]['id_produktu']; - id produktu
     $_SESSION['koszyk'][0]['nazwa']; - nazwa produktu
     $_SESSION['koszyk'][0]['cena']; - cena produktu
     $_SESSION['koszyk'][0]['ilosc']; - ilosc przedmiotu danego typu w koszyku
 
+  TYPY UZYTKOWNIKA
+    - u - zwykły user
+    - p - pracownik
+    - blocked - zablokowany
+
+  TYPY potwierdzen:
+    - tak - potwierdzone (sprzedane, wyslane)
+    - nie - oczekuje na potwierdzenie
+    - blocked - anulowane
+
+
+Tabele z bazy danych
+    - kategorie - zawiera kategorie produktów
+    - produkty - zawiera cały inwentarz, jaki sklep posiada
+    - sprzedaz - "log sprzedazy", czyli cała historia sprzedaży z potwierdzeniami, itp
+    - uzytkownicy - zarejestrowani uzytkownicy i pracownicy

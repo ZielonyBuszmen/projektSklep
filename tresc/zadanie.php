@@ -17,7 +17,7 @@
     {
         echo '<li>'.$w.'</li>';
     }
-    echo '</ul>'
+    echo '</ol>'
     ?>
 <hr><hr>
 Termin oddania: poniedziałek, 7 grudzień 2015, 08:00 

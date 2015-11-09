@@ -25,7 +25,7 @@
     $folder_obrazkow='img/produkty';
     
     // wyświetlamy dany produkt
-    $wynik = mysql_query("SELECT * FROM `magazyn` WHERE id_produktu={$id}");
+    $wynik = mysql_query("SELECT * FROM `produkty` WHERE id_produktu={$id}");
     while($r = mysql_fetch_assoc($wynik)) 
     {
         echo "<h2>{$r['nazwa']}</h2>";

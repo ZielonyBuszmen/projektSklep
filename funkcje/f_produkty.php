@@ -9,7 +9,7 @@ function w_produkt_kafelek($id)
     echo '<div class="thumbnail">'
           .'<div class="caption">'
           .'';
-    $wynik = mysql_query("SELECT * FROM `magazyn` WHERE id_produktu={$id}");
+    $wynik = mysql_query("SELECT * FROM `produkty` WHERE id_produktu={$id}");
     while($r = mysql_fetch_assoc($wynik)) 
     {
         echo "<img src='{$folder_obrazkow}/{$r['obrazek']}' height='{$height}'><br>";
@@ -24,7 +24,7 @@ function w_produkt_kafelek($id)
 // zwraca liczbę produktów w sklepie
 function liczba_produktow()
 {
-    $wynik = mysql_query("SELECT * FROM magazyn");
+    $wynik = mysql_query("SELECT * FROM produkty");
     $liczba = mysql_num_rows($wynik);
     return $liczba;
 }
