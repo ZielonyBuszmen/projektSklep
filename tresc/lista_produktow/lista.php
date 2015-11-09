@@ -24,8 +24,8 @@ if (isset($_POST['cena_max']) && $_POST['cena_max']>0)
 }
 
 // wyswietlenie tabeli z produktami
-echo '<div class="row">';
+//echo '<div class="row">';
 // funkcja, która pobiera przefiltrowane dane i wyświetla w zależności od ich podanych
 w_produkty_kafelki($kategoria, $cena_min, $cena_max);
-echo '</div>';
+//echo '</div>';
 ?>

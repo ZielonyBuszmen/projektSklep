@@ -41,7 +41,7 @@ function w_produkty_kafelki($id_kategorii, $cena_min=0, $cena_max=0)
     // kilka zmiennych "globalnych"
     $folder_obrazkow='img/produkty';
     $height = 120; // wysykosc zdjecia
-    $col_md = 4; // szerokość "kafelka" z produktem
+    $col_md = 3; // szerokość "kafelka" z produktem
     
     $wynik = mysql_query($zapytanie); // zapytanie do bazy danych
     $i = 0; // potrzeba zmienna $i, by sprawdzac, co ile "przełamać" linię

@@ -14,16 +14,13 @@ while($r = mysql_fetch_assoc($wynik))
     echo '</li>';
 }
 echo '</ul>';
+echo '<hr>';
 ?>
 <!-- Formularz do pobrania zakresów cenowych od użytkownka --->
-<form class="form-inline"  action="index.php?kat=<?=@$_GET['kat']?>" method="post" accept-charset="utf-8">
-  <div class="form-group">
+<form class="form"  action="index.php?kat=<?=@$_GET['kat']?>" method="post" accept-charset="utf-8">
     <label for="exampleInputName2">Od</label>
     <input name="cena_min" type="text" class="form-control"placeholder="cena min">
-  </div>
-  <div class="form-group">
     <label for="exampleInputEmail2">Do</label>
-    <input name="cena_max" type="text" class="form-control" placeholder="cena max">
-  </div>
+    <input name="cena_max" type="text" class="form-control" placeholder="cena max"><br>
   <button type="submit" class="btn btn-default">Sprawdź</button>
 </form>
