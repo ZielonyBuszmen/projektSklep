@@ -6,7 +6,7 @@
      
   <div class="container">
     <div class="navbar-header">
-        <a class="navbar-brand" href="index.php">Projekt Sklep</a>
+        <a class="navbar-brand" href="index.php"><img src="img/alledrogo.png"></a>
     </div>
       <ul class="nav navbar-nav navbar-left">
         <?php    

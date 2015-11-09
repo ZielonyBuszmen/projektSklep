@@ -15,6 +15,8 @@
     require_once("funkcje/f_produkty.php");
     // f_koszyk zawiera funkcje do obsługi i wyświetlania koszyka
     require_once("funkcje/f_koszyk.php");
+     // f_koszyk zawiera funkcje do wyświetlania "okruszkow", czyli ściezki dostępu
+    require_once("funkcje/f_okruszki.php");
     
 ?>
 <!DOCTYPE html>
