@@ -28,3 +28,20 @@ function okruszki()
     }
     echo '</ol>'; // zakonczenie wyswietlania ściezki
 }
+
+// zwraca główną stronę
+function okruch_index()
+{
+    return "<a href='index.php'>Strona główna</a>";
+}
+
+// zwraca kategorię
+function okruch_kategoria($id_kategorii)
+{
+    return '<a href="?kat='.$id_kategorii.'">'.nazwa_kategorii($id_kategorii).'</a>';
+}
+
+function okruch_produkt($id_produktu, $nazwa_produktu)
+{
+    return '<a href="?v=tresc/karta_produktu/karta_produktu&id_produktu='.$id_produktu.'">'.$nazwa_produktu.'</a>';
+}

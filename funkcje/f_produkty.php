@@ -66,7 +66,7 @@ function w_produkty_kafelki($id_kategorii, $cena_min=0, $cena_max=0)
              // PRZEZ źle zamknięte </div>
              // być może powunny być wyżej
      
-        if ($i % 3 == 0) echo '</div><div class="row">';
+        //if ($i % 3 == 0) echo '</div><div class="row">';
         $i++;  
          
             echo '</div>' // to te divy, co mogą robić problemy

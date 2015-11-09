@@ -7,7 +7,11 @@ echo '<li role="presentation"><a href="index.php">WSZYSTKO</a></li>';
 $wynik = mysql_query("SELECT * FROM `kategorie`");
 while($r = mysql_fetch_assoc($wynik)) 
 {
-    echo '<li role="presentation">';
+    if (@$_GET['kat']==$r['id_kategorii'])
+    {
+        echo '<li class="active">';
+    }
+    else echo '<li>';
     echo '<a href="?kat='.$r['id_kategorii'].'">';
     echo $r['nazwa'];
     echo '</a>';

@@ -8,7 +8,19 @@
     </div>
 </div>   
 
-<?php // Wyświetla treśc głównej strony z produktami i kategoriami
+<?php 
+// wyświetla pasek okruszków
+if (isset($_GET['kat']) && $_GET['kat']!="")
+{
+    okruszki(okruch_index(), okruch_kategoria($_GET['kat']));
+}
+else
+{
+    okruszki(okruch_index());
+}
+
+
+// Wyświetla treśc głównej strony z produktami i kategoriami
 ?>
 <div class="row">
 <div class="col-md-2">

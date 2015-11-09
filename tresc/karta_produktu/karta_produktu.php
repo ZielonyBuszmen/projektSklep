@@ -28,7 +28,7 @@
     $wynik = mysql_query("SELECT * FROM `produkty` WHERE id_produktu={$id}");
     while($r = mysql_fetch_assoc($wynik)) 
     {
-        okruszki("<a href='index.php'>Strona głowna</a>", '<a href="?kat='.$r['kategoria'].'">'.nazwa_kategorii($r['kategoria']).'</a>');
+        okruszki(okruch_index(), okruch_kategoria($r['kategoria']), okruch_produkt($r['id_produktu'], $r['nazwa']));
         
         echo "<h2>{$r['nazwa']}</h2>";
         echo "<small>ID: {$r['id_produktu']}</small><hr>";
