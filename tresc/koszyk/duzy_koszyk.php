@@ -75,9 +75,10 @@
         else $przycisk_odejmij = "<a href='{$adres_pliku}' type='button' class='btn btn-default'> - </a>";
         
         // wyświetlenie tabeli z całym koszykiem
+        $link_do_produktu = "?v=tresc/karta_produktu/karta_produktu&id_produktu={$przedmiot['id_produktu']}";
         echo '<tr>';
         echo "<td>{$przedmiot['id_produktu']}</td>";
-        echo "<td>{$przedmiot['nazwa']}</td>";
+        echo "<td><a href='{$link_do_produktu}'>{$przedmiot['nazwa']}</a></td>";
         echo "<td>{$przedmiot['cena']} zł </td>";
         echo "<td> {$przycisk_odejmij} {$przedmiot['ilosc']} {$przycisk_dodaj}</td>";
         echo "<td>".$przedmiot['ilosc']*$przedmiot['cena']." zł </td>";

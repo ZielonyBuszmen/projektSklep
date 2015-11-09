@@ -21,10 +21,11 @@ function w_pokaz_koszyk_dropdown()
     {
         foreach($_SESSION['koszyk'] as $idd)
         {
-            echo "<li>{$idd['id_produktu']} - {$idd['nazwa']} :: ilosc: {$idd['ilosc']}</li>";
+            //$cena_cala = $idd['ilosc'] * $idd['cena'];
+            echo "<li> - {$idd['nazwa']} ({$idd['ilosc']} szt.)</li>";
         }
     }
-    echo '<br><li><a href="?v=tresc/koszyk/duzy_koszyk"><b>Przejdź do całego koszyka</b></a></li>';
+    echo '<li><a href="?v=tresc/koszyk/duzy_koszyk"><b>Przejdź do całego koszyka</b></a></li>';
     
     // zakończenie menu DROPDOWN
     echo '</ul>';

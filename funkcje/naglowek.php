@@ -29,7 +29,7 @@
         if (!zalogowany())
         {      
     ?>
-      <li><a href="#">Rejestracja</a></li>
+      <li><a href="?v=tresc/rejestracja/rejestracja">Rejestracja</a></li>
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Logowanie <span class="caret"></span></a>
         <ul class="dropdown-menu">

@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-md-12"></div>
+    
 <?php
 // komunikat po dodaniu produktu do koszyka
     if (isset($_GET['dodano_do_koszyka']) && $_GET['dodano_do_koszyka']=="tak")
@@ -28,18 +28,34 @@
     $wynik = mysql_query("SELECT * FROM `produkty` WHERE id_produktu={$id}");
     while($r = mysql_fetch_assoc($wynik)) 
     {
+      
         okruszki(okruch_index(), okruch_kategoria($r['kategoria']), okruch_produkt($r['id_produktu'], $r['nazwa']));
         
-        echo "<h2>{$r['nazwa']}</h2>";
-        echo "<small>ID: {$r['id_produktu']}</small><hr>";
-        echo "<img src='{$folder_obrazkow}/{$r['obrazek']}' height='200'><br>";
-        echo "{$r['cena']} zł<br>";
-        echo "Ilość: {$r['ilosc']}<br>";
-        echo "<a href='?v=tresc/koszyk/dodaj_do_koszyka&id_produktu={$r['id_produktu']}'>Dodaj do koszyka</a>";
-
-      }
-    
-    
+        echo '<div class="col-md-12">';
+        
+        echo "<div class='row'>"
+                . "<div class='col-md-12'>"
+                    . "<h2>{$r['nazwa']}</h2> "
+                    . "<small>ID: {$r['id_produktu']}</small><hr>"
+                . "</div>"
+             . "</div>";
+                    
+        echo "<div class='row'>"
+                . "<div class='col-md-4'>"
+                     . "<img src='{$folder_obrazkow}/{$r['obrazek']}' width='280'><br>"
+                . "</div>"
+                . "<div class='col-md-6'>"
+                     . "Cena: <b>{$r['cena']} zł</b><br>"
+                     . "Ilość: <i>{$r['ilosc']}</i><br>"
+                     . "<hr>Opis: {$r['opis']}<br>"
+                . "</div>"
+                . "<div class='col-md-2'>"
+                      . "<a class='btn btn-default' href='?v=tresc/koszyk/dodaj_do_koszyka&id_produktu={$r['id_produktu']}'>Dodaj do koszyka</a>"
+                . "</div>"
+            . "</div>";
+                      
+        echo '</div>';
+    }  
 ?>
-    </div>
+    
 </div>

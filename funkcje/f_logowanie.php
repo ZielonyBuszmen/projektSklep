@@ -13,6 +13,7 @@ function zalogowany()
        return FALSE;
    }
 }
+function zalogowano() { return zalogowany(); }
 
 // funkcja loguje użytkownika, przyjmuje $login i $haslo
 // jeśli $_SESSION['zalogowany'] == TRUE, znaczy że zalogowano. W przeciwnym wypadku nie
