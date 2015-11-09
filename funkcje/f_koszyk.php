@@ -24,7 +24,7 @@ function w_pokaz_koszyk_dropdown()
             echo "<li>{$idd['id_produktu']} - {$idd['nazwa']} :: ilosc: {$idd['ilosc']}</li>";
         }
     }
-    echo '<hr><li><a href="?v=tresc/koszyk/duzy_koszyk"><b>Przejdź do całego koszyka</b></a></li>';
+    echo '<br><li><a href="?v=tresc/koszyk/duzy_koszyk"><b>Przejdź do całego koszyka</b></a></li>';
     
     // zakończenie menu DROPDOWN
     echo '</ul>';
