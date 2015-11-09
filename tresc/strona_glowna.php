@@ -23,7 +23,7 @@
        include("tresc/lista_produktow/lista.php");
        ?>
     <?php
-    echo '<br><br><hr>';
+    echo '<br><br>';
     
     
     
@@ -31,8 +31,8 @@
     // dodaj_do_koszyka(2);
     // dodaj_do_koszyka(4);
     
-    echo "<hr>Liczba rzeczy w koszyku: ";
-    echo sprawdz_liczbe_w_koszyku();
+    //echo "<hr>Liczba rzeczy w koszyku: ";
+    //echo sprawdz_liczbe_w_koszyku();
     
     ?>
 </div> 
