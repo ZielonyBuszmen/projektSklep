@@ -1,5 +1,4 @@
-<div class="row">
-    
+
 <?php
 // komunikat po dodaniu produktu do koszyka
     if (isset($_GET['dodano_do_koszyka']) && $_GET['dodano_do_koszyka']=="tak")
@@ -28,10 +27,10 @@
     $wynik = mysql_query("SELECT * FROM `produkty` WHERE id_produktu={$id}");
     while($r = mysql_fetch_assoc($wynik)) 
     {
-      
+      echo '<div class="row">';
         okruszki(okruch_index(), okruch_kategoria($r['kategoria']), okruch_produkt($r['id_produktu'], $r['nazwa']));
-        
-        echo '<div class="col-md-12">';
+        echo '</div>';
+        //echo '<div class="col-md-12">';
         
         echo "<div class='row'>"
                 . "<div class='col-md-12'>"
@@ -54,8 +53,6 @@
                 . "</div>"
             . "</div>";
                       
-        echo '</div>';
+       // echo '</div>';
     }  
 ?>
-    
-</div>

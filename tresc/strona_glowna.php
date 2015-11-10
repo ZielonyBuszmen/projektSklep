@@ -6,8 +6,8 @@
             <p>Dupa a nie nagłówek
         </div>
     </div>
-</div>   
-
+  </div> 
+<div class="row">
 <?php 
 // wyświetla pasek okruszków
 if (isset($_GET['kat']) && $_GET['kat']!="")
@@ -22,6 +22,7 @@ else
 
 // Wyświetla treśc głównej strony z produktami i kategoriami
 ?>
+    </div>  
 <div class="row">
 <div class="col-md-2">
     <div class="thumbnail">

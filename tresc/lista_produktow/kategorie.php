@@ -22,7 +22,19 @@ if (isset($_GET['liczba_na_strone']) && $_GET['liczba_na_strone']!="")
 }
 else $h_liczba_na_strone = 0;
 
+?>
 
+<!-- Liczba przedmiotów na stronie --->
+Ilość:
+<a href="<?="?liczba_na_strone=0&str=0&kat={$h_kat}"?>">Wszystkie</a>
+<a href="<?="?liczba_na_strone=2&str=1&kat={$h_kat}"?>">2</a>
+<a href="<?="?liczba_na_strone=5&str=1&kat={$h_kat}"?>">5</a>
+<a href="<?="?liczba_na_strone=10&str=1&kat={$h_kat}"?>">10</a>
+<a href="<?="?liczba_na_strone=20&str=1&kat={$h_kat}"?>">20</a>
+<a href="<?="?liczba_na_strone=30&str=1&kat={$h_kat}"?>">30</a>
+<hr>
+
+<?php
 // lista kategorii
 echo '<ul class="nav nav-pills nav-stacked">';
 echo '<li role="presentation"><a href="index.php">WSZYSTKO</a></li>';
@@ -54,14 +66,3 @@ $cc2 = "?liczba_na_strone={$h_liczba_na_strone}&str={$h_str}&kat={$h_kat}";
     <input name="cena_max" type="text" class="form-control" placeholder="cena max"><br>
   <button type="submit" class="btn btn-default">Sprawdź</button>
 </form>
-
-<!-- Liczba przedmiotów na stronie --->
-<hr>
-<?php
-$cc3 = "?liczba_na_strone={$h_liczba_na_strone}&str={$h_str}&kat={$h_kat}"
-?>
-Liczba przedmiotów na stronę:
-<a href="<?="?liczba_na_strone=0&str=0&kat={$h_kat}"?>">Wszystkie</a>
-<a href="<?="?liczba_na_strone=10&str=1&kat={$h_kat}"?>">10</a>
-<a href="<?="?liczba_na_strone=20&str=1&kat={$h_kat}"?>">20</a>
-<a href="<?="?liczba_na_strone=30&str=1&kat={$h_kat}"?>">30</a>
