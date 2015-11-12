@@ -136,3 +136,21 @@ function koszyk_suma()
     }     
     return $suma;
 }
+
+// usuwa koszyk
+function usun_koszyk()
+{
+    unset($_SESSION['koszyk']); // usuwa zmienną sesyjną z koszykiem
+}
+
+// zwraca cenę danego zamówienia
+function cena_zamowienia($id_zamowienia, $id_usera)
+{
+    $cena = 0;
+    $wynik = mysql_query("SELECT * FROM sprzedaz INNER JOIN produkty ON produkty.id_produktu = sprzedaz.id_produktu WHERE id_zamowienia=$id_zamowienia AND id_uzytkownika=$id_usera");
+    while($r = mysql_fetch_assoc($wynik))
+    {
+        $cena += $r['cena'];
+    }
+    return $cena;
+}

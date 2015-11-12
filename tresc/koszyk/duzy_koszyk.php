@@ -32,6 +32,11 @@
             --$_SESSION['koszyk'][$_GET['odejmij']]['ilosc'];
         }
     }
+    
+    
+    echo '<div class="row">';
+    okruszki(okruch_index(), "<a href='?v=tresc/koszyk/duzy_koszyk'>Cały koszyk</a>");
+    echo '</div>';
 ?>
 <div class="row">
     <div class="col-md-12">
@@ -91,7 +96,8 @@
     // podsumowanie ceny
     echo '<div align="right">';
     echo '<h3>Razem: <b>'.koszyk_suma().' zł</b>';
-    echo '<div>';
+    echo '</div>';
+    echo "<a href='?v=tresc/kupowanie/kasa' type='button' class='btn btn-default btn-lg'> Do kasy </a>";
 ?>
 </div>       
 </div>

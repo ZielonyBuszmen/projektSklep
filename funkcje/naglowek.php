@@ -51,7 +51,8 @@
         // jeśli zalogowano
         else if (zalogowany())
         {   
-            standardowy_przycisk("index.php", "Witaj <b>{$_SESSION['login']}</b>");
+            standardowy_przycisk("?v=tresc/u_zamowienia/moje_zamowienia", "Moje zamówienia");
+            standardowy_przycisk("index.php", "Witaj <b>{$_SESSION['login']}</b>", 0);
             
             standardowy_przycisk("tresc/logowanie/wyloguj.php?wyloguj=tak", "Wyloguj");
         }  
