@@ -20,6 +20,9 @@ if (!zalogowany())
 $id_zamowienia = time() + (7 * 24 * 60 * 60);  // numer zamówienia to timestamp
 $data = date("Y-m-d"); // data do wpisania do bazy
 
+// TRASAKCJA!!! - start
+ mysql_query("START TRANSACTION");
+
 // dodawanie wpisu do bazy danych
  for($i = 0; $i<sprawdz_liczbe_w_koszyku(); $i++)
 {
@@ -31,6 +34,9 @@ $data = date("Y-m-d"); // data do wpisania do bazy
     $idzapytania = mysql_query($zapytanie) or die ("bleeee eeee");    
 }
      
+// TRASAKCJA!!! - stop
+ mysql_query("COMMIT");
+
 // usunięcie koszyka
 usun_koszyk();
 // przekierowanie do strony o potwiedzeniu

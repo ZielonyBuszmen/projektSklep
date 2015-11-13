@@ -1,2 +1,13 @@
 Folder tylko dla pracowników
 Umożliwia zarządzanie zamówieniami
+
+
+ - Dodawanie produktów do magazynu
+ - Usuwanie produktów
+ - Edytowanie produktów
+ - 
+----
+ - Zarządzenie zamówieniami
+    - dla siebie
+        - zatwierdzic | odrzuc 
+

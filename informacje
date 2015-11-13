@@ -26,9 +26,7 @@ Zmienne sesyjne
     - blocked - zablokowany
 
   TYPY potwierdzen:
-    - tak - potwierdzone (sprzedane, wyslane)
-    - nie - oczekuje na potwierdzenie
-    - blocked - anulowane
+
 
 
 Tabele z bazy danych
@@ -38,7 +36,17 @@ Tabele z bazy danych
     - uzytkownicy - zarejestrowani uzytkownicy i pracownicy
 
 
+SQLy i inne bajery
+ - transakcja: - proces_kupowania.php
+ - wyzwalacze: - nigdzie
+
+
+
 
 
 DO ZROBIENIA:
     - rejestracja
+    - banner aka slider
+    - zdjęcia produktów, w tym soku grzybowego
+    - poprawić kartę produktu
+    - sortowanie z bara
