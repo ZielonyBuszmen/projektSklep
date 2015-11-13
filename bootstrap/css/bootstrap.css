@@ -4,7 +4,9 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
-
+#kafel {
+    padding-left: 10px;
+}
 #naglowek {
     margin-top: 70px;
 }

@@ -3,7 +3,9 @@
 <div class="row">
     <div class="col-md-12">
         <div class="thumbnail">
-            <p>Mądry slider z promocjami
+            <?php
+            karuzela();
+            ?>
         </div>
     </div>
   </div> 
