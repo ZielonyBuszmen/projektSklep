@@ -2,7 +2,19 @@
       Z lewej strony zawiera menu
       Z prawej strony wyświetlają się podstrony
 --->
-<div style="padding:0 20px 20px 20px;"><h1>Panel pracownika</h1></div>
+<?php
+if (!pracownik()) // jeśli to nie pracownik, przerywamy skrpyt
+{
+    komunikat("Dostęp tylko dla pracownika");
+    return;
+}
+    echo '<div class="row">';
+    okruszki(okruch_index(), "<a href='?v=tresc/p_zarzadzanie/p_panel'>Panel pracownika</a>");
+    echo '</div>';
+
+?>
+<div class="row">
+<h1>Panel pracownika</h1>
 <div id="z_panel_menu_lewe" class="col-md-3">
     <ul class="nav nav-pills nav-stacked thumbnail">
         <?php
@@ -27,4 +39,5 @@
     dolacz_plik("prawa", "{$lox}p_nowe_zamowienia"); 
     ?>
     </div>
+</div>
 </div>

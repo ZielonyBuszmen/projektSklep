@@ -51,11 +51,19 @@
         // jeśli zalogowano
         else if (zalogowany())
         {   
-            standardowy_przycisk("?v=tresc/u_zamowienia/moje_zamowienia", "Moje zamówienia");
+            if (klient()) 
+            {   // jeśli klient, to przyciski dla klienta
+                standardowy_przycisk("?v=tresc/u_zamowienia/moje_zamowienia", "Moje zamówienia");
+            }
+            else if (pracownik()) 
+            {   // jeśli pracownik to przyciski dla pracownika
+                standardowy_przycisk("?v=tresc/p_zarzadzanie/p_panel", "Zarządzanie zamówieniami");
+            }
+            // przyciski dla wszystkich
             standardowy_przycisk("index.php", "Witaj <b>{$_SESSION['login']}</b>", 0);
-            
             standardowy_przycisk("tresc/logowanie/wyloguj.php?wyloguj=tak", "Wyloguj");
-        }  
+        }
+
     ?>
     </ul>
   </div>
