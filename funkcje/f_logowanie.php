@@ -15,6 +15,51 @@ function zalogowany()
 }
 function zalogowano() { return zalogowany(); }
 
+// sprawdza, czy zalogowany jest pracownik. Zwraca TRUE, jeśli tak. W przeciwnym wypadku FALSE
+function pracownik()
+{
+   if(zalogowany())
+   {
+        if (isset($_SESSION['typ']) && $_SESSION['typ']=="p")
+        {
+            return TRUE;
+        }
+        else 
+        {
+            return FALSE;
+        }
+    }
+   else 
+   {
+       return FALSE;
+   }
+}
+
+// sprawdza, czy zalogowany jest zwykly uzytkownik (klient)
+function user()
+{
+   if(zalogowany())
+   {
+        if (isset($_SESSION['typ']) && $_SESSION['typ']=="u")
+        {
+            return TRUE;
+        }
+        else 
+        {
+            return FALSE;
+        }
+    }
+   else 
+   {
+       return FALSE;
+   }
+}
+
+// taka sama funkcja, inna nazwa
+function klient() { return user(); }
+
+
+
 // funkcja loguje użytkownika, przyjmuje $login i $haslo
 // jeśli $_SESSION['zalogowany'] == TRUE, znaczy że zalogowano. W przeciwnym wypadku nie
 // w przeciwnym wypadku zwraca komunikat o błędzie lub niepowodzeniu
