@@ -4,6 +4,13 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+#karta_kafel {
+    padding: 10px;
+}
+
+#kafel {
+    padding-left: 10px;
+}
 
 #naglowek {
     margin-top: 70px;
@@ -1228,7 +1235,7 @@ h2,
 .h2,
 h3,
 .h3 {
-  margin-top: 20px;
+  margin-top: 10px;
   margin-bottom: 10px;
 }
 h1 small,
@@ -5052,8 +5059,8 @@ a.badge:focus {
 }
 .thumbnail {
   display: block;
-  padding: 4px;
-  margin-bottom: 20px;
+  padding: 10px;
+  margin-bottom: 10px;
   line-height: 1.42857143;
   background-color: #fff;
   border: 1px solid #ddd;

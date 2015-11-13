@@ -63,7 +63,7 @@ function w_produkty_kafelki($id_kategorii, $cena_min=0, $cena_max=0, $liczba_na_
     $i = 0; // potrzeba zmienna $i, by sprawdzac, co ile "przełamać" linię
     while($r = mysql_fetch_assoc($wynik)) 
     {   // rozmiarówka kafelka
-        echo '<div class="col-md-'.$col_md.'">';
+        echo '<div id="kafel" class="col-md-'.$col_md.'">';
         // rozpoczenie miniatury
         echo '<div class="thumbnail">'
         .'<div class="caption" style="text-align: center;">';
@@ -155,4 +155,63 @@ function nazwa_kategorii($id_kategorii)
     {
         return $r['nazwa'];
     }
+}
+
+//wyświetla karuzelę z promocjami jak w lydlu
+function karuzela()
+{
+echo '<div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+    <li data-target="#myCarousel" data-slide-to="3"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <a href="index.php?v=tresc/karta_produktu/karta_produktu&id_produktu=20"><img src="img/karuzela/zubr.jpg" alt="Żubr"></a>
+      <div class="carousel-caption">
+        <h3></h3>
+        <p></p>
+      </div>
+    </div>
+
+    <div class="item">
+      <a href="index.php?v=tresc/karta_produktu/karta_produktu&id_produktu=15"><img src="img/karuzela/finlandia.jpg" alt="Finlandia"></a>
+      <div class="carousel-caption">
+        <h3></h3>
+        <p></p>
+      </div>
+    </div>
+
+    <div class="item">
+      <a href="index.php?v=tresc/karta_produktu/karta_produktu&id_produktu=30"><img src="img/karuzela/pumpernikiel.jpg" alt="Flower"></a>
+      <div class="carousel-caption">
+        <h3></h3>
+        <p></p>
+      </div>
+    </div>
+
+    <div class="item">
+      <a href="index.php?v=tresc/karta_produktu/karta_produktu&id_produktu=36"><img src="img/karuzela/szampan.jpg" alt="Flower"></a>
+      <div class="carousel-caption">
+        <h3></h3>
+        <p></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Left and right controls -->
+  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Poprzedni</span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Następny</span>
+  </a>
+</div>';
 }

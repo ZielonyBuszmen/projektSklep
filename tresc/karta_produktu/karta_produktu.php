@@ -33,22 +33,21 @@
         //echo '<div class="col-md-12">';
         
         echo "<div class='row'>"
-                . "<div class='col-md-12'>"
-                    . "<h2>{$r['nazwa']}</h2> "
-                    . "<small>ID: {$r['id_produktu']}</small><hr>"
+                . "<div class='thumbnail'>"
+                    . "<h2>{$r['nazwa']}</h2>"
                 . "</div>"
              . "</div>";
                     
         echo "<div class='row'>"
-                . "<div class='col-md-4'>"
+                . "<div class='col-md-4 thumbnail'>"
                      . "<img src='{$folder_obrazkow}/{$r['obrazek']}' width='280'><br>"
                 . "</div>"
-                . "<div class='col-md-6'>"
+                . "<div id='karta_kafel' class='col-md-6'>"
                      . "Cena: <b>{$r['cena']} zł</b><br>"
                      . "Ilość: <i>{$r['ilosc']}</i><br>"
                      . "<hr>Opis: {$r['opis']}<br>"
                 . "</div>"
-                . "<div class='col-md-2'>"
+                . "<div id='karta_kafel' class='col-md-2 thumbnail'>"
                       . "<a class='btn btn-default' href='?v=tresc/koszyk/dodaj_do_koszyka&id_produktu={$r['id_produktu']}'>Dodaj do koszyka</a>"
                 . "</div>"
             . "</div>";
