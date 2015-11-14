@@ -22,12 +22,12 @@ if (!pracownik()) // jeśli to nie pracownik, przerywamy skrpyt
         $plik = "?v=tresc/p_zarzadzanie/p_panel";
         $lox = "tresc/p_zarzadzanie/";
         // przyciski do podstron
-        standardowy_przycisk("{$plik}&prawa={$lox}p_nowe_zamowienia", "Nowe zamówienia");
-        standardowy_przycisk("{$plik}&prawa={$lox}p_zamowienia_przetwarzane", "Zamówienia przetwarzane");
-        standardowy_przycisk("{$plik}&prawa={$lox}p_zamowienia_archiwalne", "Zamowienia archiwalne");
+        standardowy_przycisk("{$plik}&prawa={$lox}z_nowe/p_nowe_zamowienia", "Nowe zamówienia");
+        standardowy_przycisk("{$plik}&prawa={$lox}z_moje/p_zamowienia_przetwarzane", "Zamówienia przetwarzane");
+        standardowy_przycisk("{$plik}&prawa={$lox}z_stare/p_zamowienia_archiwalne", "Zamowienia archiwalne");
         echo '<hr>';
-        standardowy_przycisk("{$plik}&prawa={$lox}p_dodaj_nowy_produkt", "Dodaj nowy produkt");
-        standardowy_przycisk("{$plik}&prawa={$lox}p_lista_produktow", "Zarządzaj produktami");
+        standardowy_przycisk("{$plik}&prawa={$lox}produkty/p_dodaj_nowy_produkt", "Dodaj nowy produkt");
+        standardowy_przycisk("{$plik}&prawa={$lox}produkty/p_lista_produktow", "Zarządzaj produktami");
         
         ?>
     </ul>

@@ -115,3 +115,13 @@ function zaloguj($login, $haslo)
     // zwrócenie tablicy z błędami
     return $bledy;
 }
+
+
+function imie_usera($id_usera)
+{
+    $wynik = mysql_query("SELECT * FROM uzytkownicy WHERE id={$id_usera}");
+    while($r = mysql_fetch_assoc($wynik))
+    {
+        return "{$r['imie']} {$r['nazwisko']}";
+    }
+}
