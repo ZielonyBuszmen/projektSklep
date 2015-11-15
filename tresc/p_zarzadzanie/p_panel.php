@@ -12,6 +12,22 @@ if (!pracownik()) // jeśli to nie pracownik, przerywamy skrpyt
     okruszki(okruch_index(), "<a href='?v=tresc/p_zarzadzanie/p_panel'>Panel pracownika</a>");
     echo '</div>';
 
+    // sprawdzamy, czy inny pracownik nie przetwarza zamówienia.
+    // jeśli tak, to przerywamy cały skrypt
+    // funkcja zwraca true, jak nikt inny nie przetwarza
+    // natomiast funkcja zwraca false, jeśli ktoś inny przetwarza
+    if (!czy_przetwarza($_SESSION['id_usera']))
+    {
+        // ktoś, kto nie jest nami przetwarza zamówienie. Return!
+        komunikat("Trwa przetwarzanie zamówień przez innego pracownika");
+        return;
+    }
+    // sprawdzamy, czy nasz użytkownik coś przetwarza
+    if (czy_ja_cos_przetwarzam($_SESSION['id_usera']))
+    {
+        komunikat("Uwaga! Przetwarzasz zamówienie. Zakończ ten proces jak najszybciej, gdyż inni pracownicy nie mogą zająć się innymi zamówieniami<a href='?v=tresc/p_zarzadzanie/p_panel&prawa=tresc/p_zarzadzanie/z_moje/p_zamowienia_przetwarzane'> Zobacz </a>", "warning");
+    }
+    
 ?>
 <div class="row">
 <h1>Panel pracownika</h1>

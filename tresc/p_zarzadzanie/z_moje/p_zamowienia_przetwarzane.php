@@ -2,7 +2,7 @@
 // Wyświetla listę zamówien przetwarzanych przez danego pracownika
 
 ?>
-<h2>Zamówienia przetwarzane przeze mnie</h2>
+<h2>Zamówienia przetwarzane teraz przeze mnie</h2>
 <hr>
  <table class="table">
   <thead>
