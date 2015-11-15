@@ -1,0 +1,13 @@
+Skrypty, które umożliwiają przetwarzanie zamówienia przez pracownika
+
+p_zamowienia_przetwarzane - zawiera listę zamówień, które przetwarza dany pracownik
+
+p_dane_zamowienie - wyświetla dane zamówienie
+    - umożliwia zmianę ilośći produktu
+    - przekierowywuje do p_finalizuj_zamowienie
+
+p_finalizuj_zamowienie - sprawdza, czy w bazie jest tyle produktów, czy da sie to w ogóle zatwierdzic
+    -- jeśli wszystko ok, wyświetla przycisk do potwierdzenia. Po wcisnieciu:
+            -- zmienia ilość danych z magazynie, zmienia status zamówienia na skończony
+    -- drugi przycisk służy do anulowania, wtedy zmienia sie status zamowienia na blocked
+    -- trzeci przycisk to wstecz, umożliwia powrót do poprzedniego kroku i poprawienie danych
