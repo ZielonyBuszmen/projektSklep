@@ -1,6 +1,6 @@
 <?php
 // Skrypt wyświetla dane zamówienie (szczegóły) i pozwala nim zarządzać
-// do dokonczenia
+// zmieniać ilość, itd
 
 // jeśli nie zalogowano to przerywamy skrypt
 if (!pracownik())
@@ -31,20 +31,20 @@ else if (isset($_GET['akcja']) && $_GET['akcja']!="")
     {   // musimy zmienić każdą linijkę, więc musimy przejśc przez każdy produkt w petli
         $wynik = mysql_query("SELECT * FROM sprzedaz WHERE id_zamowienia={$_GET['id_zamowienia']}");
         while($gg = mysql_fetch_assoc($wynik))
-        {   
-            $indeks = 'ilosc'.$gg['id_sprzedazy'];
-            $nazwa_zmiennej = $_POST[$indeks];
+        {  
+            $indeks = 'ilosc'.$gg['id_sprzedazy']; // indeks pola ze zmiennej $_POST
+            $nazwa_zmiennej = $_POST[$indeks]; //przypisujemy, aby było wygodniej
+            // zapytanie do bazy zmieniające ilość produktu
             $zapytanie = "UPDATE `sprzedaz` SET `ilosc` = '{$nazwa_zmiennej}' WHERE `id_sprzedazy`='{$gg['id_sprzedazy']}'";
             $idzapytania = mysql_query($zapytanie) or die ("blee e e e e e ");
             // przekierowanie do tej samej strony, ale bez zmieniania danych
+            // zrobione jest to dla bezpieczeństwa, by omyłkowe odświeżenie strony nic nie zepsuło
             header("Location: index.php?v=tresc/p_zarzadzanie/p_panel&prawa=tresc/p_zarzadzanie/z_moje/p_dane_zamowienie&id_zamowienia={$_GET['id_zamowienia']}&akcja=zarzadzaj");
         }
     }
-
     
 // tabelka z produkatmi w tym zamówieniu
 ?>
-
 <h2>Zamówienie #<?=$_GET['id_zamowienia']?> <br> <small><?=$tytul?> </small></h2>
 <?=zamowienie_komunikat("czeka", "btn-md")?>
 <hr>
@@ -59,7 +59,6 @@ else if (isset($_GET['akcja']) && $_GET['akcja']!="")
     </tr>
   </thead>
     <tbody>
-
 <?php
     // odpowiednie zapytanie, by pobrać dane i je wyświetlić w tabeli
     $wynik = mysql_query("SELECT `produkty`.`nazwa`, `produkty`.cena, `sprzedaz`.ilosc, `sprzedaz`.id_sprzedazy, produkty.id_produktu FROM sprzedaz INNER JOIN produkty ON produkty.id_produktu = sprzedaz.id_produktu WHERE id_zamowienia={$_GET['id_zamowienia']}");
@@ -74,7 +73,7 @@ else if (isset($_GET['akcja']) && $_GET['akcja']!="")
             echo "<tr class='danger'>";
             $wystarcza_towaru = FALSE;
         }
-        else 
+        else // w przeciwnym wypadku wyświetlamy normalnie
         {
             echo "<tr>";
         }
@@ -87,9 +86,10 @@ else if (isset($_GET['akcja']) && $_GET['akcja']!="")
     }
     echo '</tbody></table>';
     echo "<h4>Razem: {$razem} zł</h4>";
+    // przycisk do zatwierdzenia zmian
     echo '<button type="submit" class="btn btn-default"><b>Zatwierdź zmiany</b></button></form> ';
     echo '<hr>';
-    // jeśli wystarcza towaru
+    // jeśli wystarcza towaru, wyświetlamy jedne przyciski
     if ($przycisk && $wystarcza_towaru)
     {
         $link_tak="?v=tresc/p_zarzadzanie/p_panel"
@@ -102,7 +102,7 @@ else if (isset($_GET['akcja']) && $_GET['akcja']!="")
         echo "<a href='{$link_tak}' class='btn btn-success ' style='margin-right:20px;'>Tak, przejdź do kroku finalizacji </a>";
         echo "<a href='{$link_nie}' class='btn btn-danger '>Nie</a>";
     }
-    // jeśli nie wystarcza towaru
+    // jeśli nie wystarcza towaru, wyświetlamy inne przyciski
     else if($przycisk && $wystarcza_towaru==FALSE)
     {
         $link_anuluj = "";
