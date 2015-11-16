@@ -4,6 +4,14 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+#l_panel_lewy {
+    padding-right: 10px;
+}
+
+#l_panel_prawy {
+    padding-left: 10px;
+}
+
 #karta_kafel {
     padding: 10px;
 }

@@ -1,7 +1,7 @@
 <div class="row">
-        <div id="l_panel_lewy" class="col-md-6">
+        <div id="l_panel_lewy" class="col-md-12">
             <legend>Rejestracja</legend>     
-        <form action="?v=tresc/rejestracja/rejestracja" id="rejestracja" method="post" accept-charset="utf-8">
+        <form action="?v=tresc/rejestracja/rejestracja" id="rejestracja" class="thumbnail" method="post" accept-charset="utf-8">
             <div class="form-group">
                 <input type="text" id="login" class="form-control" name="r_login" placeholder="Login" value="">
             </div>
@@ -115,10 +115,4 @@ if($licznik_bledow == 0)
 }
 ?>
 
-<div id="l_panel_prawy" class="col-md-6">
-    <h2>Rejestracja</h2>
-    <br><p>Rejestracja na portalu umożliwi Ci korzystanie z wszelkich dobrodziejstw tej platformy.
-        Po ukończeniu rejestracji zostaniesz automatycznie zalogowany. Bez potwierdzania emailem.
-    <p>
-</div>
 </div>
