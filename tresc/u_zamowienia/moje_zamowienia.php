@@ -33,10 +33,10 @@ if (!zalogowano())
     {   // wyświetlenie tabelki z wszystkimi zamówieniami
         $cena = cena_zamowienia($r['id_zamowienia'], $_SESSION['id_usera']); // podliczenie ceny danego zamówienia
         echo '<tr>';
-        echo "<td><a href='?v=tresc/u_zamowienia/dane_zamowienie&id_zamowienia={$r['id_zamowienia']}'>{$r['id_zamowienia']}</a></td>";
+        echo "<td><a href='?v=tresc/u_zamowienia/dane_zamowienie&id_zamowienia={$r['id_zamowienia']}&potwierdzenie={$r['potwierdzenie']}'>{$r['id_zamowienia']}</a></td>";
         echo "<td>{$r['data']}</td>";
         echo "<td>{$cena} zł</td>";
-        echo "<td>{$r['potwierdzenie']}</td>";
+        echo "<td>".zamowienie_komunikat($r['potwierdzenie'])."</td>";
     }
 ?>
 </div>       

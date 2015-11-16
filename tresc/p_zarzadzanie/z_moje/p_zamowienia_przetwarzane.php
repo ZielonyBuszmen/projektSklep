@@ -24,7 +24,7 @@
         $cena = cena_zamowienia($r['id_zamowienia'], $r['id']); // podliczenie ceny danego zamówienia
         $link1= "?v=tresc/p_zarzadzanie/p_panel&prawa=tresc/p_zarzadzanie/z_moje/p_dane_zamowienie&id_zamowienia={$r['id_zamowienia']}";
         echo '<tr>';
-        echo "<td><a href='{$link1}'>{$r['id_zamowienia']}</a></td>";
+        echo "<td><a href='{$link1}&akcja=zarzadzaj'>{$r['id_zamowienia']}</a></td>";
         echo "<td>{$r['data']}</td>";
         echo "<td>{$cena} zł</td>";
         echo "<td>".zamowienie_komunikat($r['potwierdzenie'])."</td>";

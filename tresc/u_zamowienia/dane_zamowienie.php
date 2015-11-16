@@ -24,6 +24,7 @@ if (!isset($_GET['id_zamowienia']) || $_GET['id_zamowienia']=="")
 <div class="row">
     <div class="col-md-12">
 <h2>Zamówienie #<?=$_GET['id_zamowienia']?></h2>
+<?=zamowienie_komunikat($_GET['potwierdzenie'], "btn-lg")?>
 <hr>
  <table class="table">
   <thead>

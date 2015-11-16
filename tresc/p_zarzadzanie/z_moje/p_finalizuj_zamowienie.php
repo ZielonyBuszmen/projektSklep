@@ -1,5 +1,11 @@
 skrypt sprawdza, czy można sfinalizować zamówienie. Jeśli tak, robi to:<br>
-odejmuje produkty z bazy, itepe
+odejmuje produkty z bazy, itepe<br>
+<br>
+dane przesylane:
+$_GET['id_zamowienia']
+$_GET['akcja'] = 
+            tak - potwierdzenie i zatwierdzenie zamowienia
+            zablokuj - odrzucenie zamowienia( nadanie mu rangi blocked)
 <?php
 
 /* 

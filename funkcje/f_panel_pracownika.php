@@ -37,3 +37,16 @@ function czy_ja_cos_przetwarzam($id_usera)
         return FALSE;
     }
 }
+
+// funkcja sprawdza, czy jest tyle towaru w sklepie, by userowi to wysłać
+// zwraca true, jeśli starcza
+// zwraca false, jeśli towaru braknie
+function czy_starcza_towaru($id_produktu, $ilosc)
+{
+    $wynik = mysql_query("SELECT * FROM produkty WHERE id_produktu={$id_produktu}");
+    while($gg = mysql_fetch_assoc($wynik))
+    {   // jesli ilość towaru w magazynie jest mniejsza niz ilość towaru
+        if ($gg['ilosc'] < $ilosc) return FALSE;
+        else return TRUE;
+    }
+}

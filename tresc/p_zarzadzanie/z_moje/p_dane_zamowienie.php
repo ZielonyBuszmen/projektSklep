@@ -26,21 +26,21 @@ else if (isset($_GET['akcja']) && $_GET['akcja']!="")
     $przycisk = TRUE;
 }
     
-// sprawdzamy, czy jest wysłane tak i dodajemy danego pracownika do zarządzania zamówieniem
-if (isset($_GET['akcja']) && $_GET['akcja']=="zarzadzaj")
-{
-    if (isset($_GET['potwierdzenie']) && $_GET['potwierdzenie']=="tak")
-    {
-        // dodajemy pracownika do tego zamowienia
-        //$zapytanie = "UPDATE `sprzedaz` SET `potwierdzenie` = 'czeka',`id_pracownika_co_weryfikowal` = '{$_SESSION['id_usera']}' WHERE `id_zamowienia`='{$_GET['id_zamowienia']}'";
-       // $idzapytania = mysql_query($zapytanie) or die ("blee");
-        
-        // wszystko sie udało, przekierowywujemy do strony
-       // header("Location: index.php?v=tresc/p_zarzadzanie/p_panel&prawa=tresc/p_zarzadzanie/z_moje/p_zamowienia_przetwarzane");
-        //return; // zatrzymanie skrypu, gdyby przekierowanie sie nie udalo
+// zmiana ilości produktów w zamowieniu
+    if (isset($_GET['zmiana']) && $_GET['zmiana']=="tak")
+    {   // musimy zmienić każdą linijkę, więc musimy przejśc przez każdy produkt w petli
+        $wynik = mysql_query("SELECT * FROM sprzedaz WHERE id_zamowienia={$_GET['id_zamowienia']}");
+        while($gg = mysql_fetch_assoc($wynik))
+        {   
+            $indeks = 'ilosc'.$gg['id_sprzedazy'];
+            $nazwa_zmiennej = $_POST[$indeks];
+            $zapytanie = "UPDATE `sprzedaz` SET `ilosc` = '{$nazwa_zmiennej}' WHERE `id_sprzedazy`='{$gg['id_sprzedazy']}'";
+            $idzapytania = mysql_query($zapytanie) or die ("blee e e e e e ");
+            // przekierowanie do tej samej strony, ale bez zmieniania danych
+            header("Location: index.php?v=tresc/p_zarzadzanie/p_panel&prawa=tresc/p_zarzadzanie/z_moje/p_dane_zamowienie&id_zamowienia={$_GET['id_zamowienia']}&akcja=zarzadzaj");
+        }
     }
-}
-    
+
     
 // tabelka z produkatmi w tym zamówieniu
 ?>
@@ -48,6 +48,7 @@ if (isset($_GET['akcja']) && $_GET['akcja']=="zarzadzaj")
 <h2>Zamówienie #<?=$_GET['id_zamowienia']?> <br> <small><?=$tytul?> </small></h2>
 <?=zamowienie_komunikat("czeka", "btn-md")?>
 <hr>
+<form action="index.php?v=tresc/p_zarzadzanie/p_panel&prawa=tresc/p_zarzadzanie/z_moje/p_dane_zamowienie&id_zamowienia=<?=$_GET['id_zamowienia']?>&akcja=zarzadzaj&zmiana=tak" method="post" accept-charset="utf-8">
  <table class="table">
   <thead>
     <tr>
@@ -61,34 +62,53 @@ if (isset($_GET['akcja']) && $_GET['akcja']=="zarzadzaj")
 
 <?php
     // odpowiednie zapytanie, by pobrać dane i je wyświetlić w tabeli
-    $wynik = mysql_query("SELECT `produkty`.`nazwa`, `produkty`.cena, `sprzedaz`.ilosc FROM sprzedaz INNER JOIN produkty ON produkty.id_produktu = sprzedaz.id_produktu WHERE id_zamowienia={$_GET['id_zamowienia']}");
+    $wynik = mysql_query("SELECT `produkty`.`nazwa`, `produkty`.cena, `sprzedaz`.ilosc, `sprzedaz`.id_sprzedazy, produkty.id_produktu FROM sprzedaz INNER JOIN produkty ON produkty.id_produktu = sprzedaz.id_produktu WHERE id_zamowienia={$_GET['id_zamowienia']}");
     $razem = 0;
+    $wystarcza_towaru = TRUE;
     while($r = mysql_fetch_assoc($wynik))
     {
         // wiersz tabeli z danymi
-        echo "<tr>";
+        // na czerwono, jeśli nie ma towaru
+        if (!czy_starcza_towaru($r['id_produktu'], $r['ilosc']))
+        {
+            echo "<tr class='danger'>";
+            $wystarcza_towaru = FALSE;
+        }
+        else 
+        {
+            echo "<tr>";
+        }
         echo "<td>{$r['nazwa']}</td>";
         echo "<td>{$r['cena']} zł</td>";
-        echo "<td>{$r['ilosc']}</td>";
+        echo '<td> <input type="ilosc" style="width:60px;" class="form-control" id="exampleInputEmail1" placeholder="" name="ilosc'.$r['id_sprzedazy'].'" value="'.$r['ilosc'].'"> </td>';
         echo "<td>".$r['ilosc']*$r['cena']." zł</td>";
         echo "</tr>";
         $razem += $r['ilosc']*$r['cena'];
     }
     echo '</tbody></table>';
     echo "<h4>Razem: {$razem} zł</h4>";
-    
+    echo '<button type="submit" class="btn btn-default"><b>Zatwierdź zmiany</b></button></form> ';
     echo '<hr>';
-    if ($przycisk)
+    // jeśli wystarcza towaru
+    if ($przycisk && $wystarcza_towaru)
     {
         $link_tak="?v=tresc/p_zarzadzanie/p_panel"
-                . "&prawa=tresc/p_zarzadzanie/z_moje/p_dane_zamowienie"
+                . "&prawa=tresc/p_zarzadzanie/z_moje/p_finalizuj_zamowienie"
                 . "&id_zamowienia={$_GET['id_zamowienia']}"
-                . "&akcja=zarzadzaj"
-                . "&potwierdzenie=tak";
+                . "&akcja"
+                . "&";
         $link_nie = "?v=tresc/p_zarzadzanie/p_panel&prawa=tresc/p_zarzadzanie/z_moje/p_zamowienia_przetwarzane";
-        echo "<h3>Czy chcesz sfinalizować zamówienie #{$_GET['id_zamowienia']} i sprawdzic jego poprawność?</h3>";
-        echo "<a href='{$link_tak}' class='btn btn-success ' style='margin-right:20px;'>Tak, przejdź do działu wysyłki </a>";
+        echo "<h3>Czy chcesz przejść do etapu finalizacji zamowienia #{$_GET['id_zamowienia']} i sprawdzic jego poprawność?</h3>";
+        echo "<a href='{$link_tak}' class='btn btn-success ' style='margin-right:20px;'>Tak, przejdź do kroku finalizacji </a>";
         echo "<a href='{$link_nie}' class='btn btn-danger '>Nie</a>";
     }
-    
+    // jeśli nie wystarcza towaru
+    else if($przycisk && $wystarcza_towaru==FALSE)
+    {
+        $link_anuluj = "";
+        $link_nie = "?v=tresc/p_zarzadzanie/p_panel&prawa=tresc/p_zarzadzanie/z_moje/p_zamowienia_przetwarzane";
+        komunikat("Nie wystarcza towaru zaznaczanego na czerowono. Zmniejsz jego ilość lub anuluj zamówienie", "danger");
+        echo "<a href='{$link_anuluj}' class='btn btn-danger ' style='margin-right:20px;'>Odrzuć zamówienie</a>";
+        echo "<a href='{$link_nie}' class='btn btn-info'>Powrót</a>";
+    }
 ?>
