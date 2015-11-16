@@ -50,3 +50,14 @@ function czy_starcza_towaru($id_produktu, $ilosc)
         else return TRUE;
     }
 }
+
+// zwraca ilość danego produktu w bazie
+function sprawdz_ilosc_produktu_w_bazie($id_produktu)
+{   // pobieramy odpowiedni produkt z bazy
+    $wynik = mysql_query("SELECT * FROM `produkty` WHERE id_produktu={$id_produktu}");
+    while($r = mysql_fetch_assoc($wynik)) 
+    {   // przypisujemy ilość produktu do zmiennej ilosc
+        $ilosc = $r['ilosc'];
+        return $ilosc;
+    }
+}

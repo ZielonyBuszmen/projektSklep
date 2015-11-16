@@ -85,29 +85,34 @@ else if (isset($_GET['akcja']) && $_GET['akcja']!="")
         $razem += $r['ilosc']*$r['cena'];
     }
     echo '</tbody></table>';
+    echo '<button style="float:right;" type="submit" class="btn btn-default"><b>Zatwierdź zmiany</b></button></form> ';
     echo "<h4>Razem: {$razem} zł</h4>";
     // przycisk do zatwierdzenia zmian
-    echo '<button type="submit" class="btn btn-default"><b>Zatwierdź zmiany</b></button></form> ';
     echo '<hr>';
     // jeśli wystarcza towaru, wyświetlamy jedne przyciski
-    if ($przycisk && $wystarcza_towaru)
-    {
+    // stworzenie linków
         $link_tak="?v=tresc/p_zarzadzanie/p_panel"
                 . "&prawa=tresc/p_zarzadzanie/z_moje/p_finalizuj_zamowienie"
                 . "&id_zamowienia={$_GET['id_zamowienia']}"
-                . "&akcja"
-                . "&";
+                . "&akcja=tak";
         $link_nie = "?v=tresc/p_zarzadzanie/p_panel&prawa=tresc/p_zarzadzanie/z_moje/p_zamowienia_przetwarzane";
+        $link_anuluj="?v=tresc/p_zarzadzanie/p_panel"
+                . "&prawa=tresc/p_zarzadzanie/z_moje/p_finalizuj_zamowienie"
+                . "&id_zamowienia={$_GET['id_zamowienia']}"
+                . "&akcja=zablokuj";
+                
+    if ($przycisk && $wystarcza_towaru)
+    {
+        
         echo "<h3>Czy chcesz przejść do etapu finalizacji zamowienia #{$_GET['id_zamowienia']} i sprawdzic jego poprawność?</h3>";
         echo "<a href='{$link_tak}' class='btn btn-success ' style='margin-right:20px;'>Tak, przejdź do kroku finalizacji </a>";
-        echo "<a href='{$link_nie}' class='btn btn-danger '>Nie</a>";
+        echo "<a href='{$link_anuluj}' class='btn btn-danger ' style='margin-right:20px;'>Odrzuć zamówienie</a>";
+        echo "<a href='{$link_nie}' class='btn btn-info '>Powrót</a>";
     }
     // jeśli nie wystarcza towaru, wyświetlamy inne przyciski
     else if($przycisk && $wystarcza_towaru==FALSE)
     {
-        $link_anuluj = "";
-        $link_nie = "?v=tresc/p_zarzadzanie/p_panel&prawa=tresc/p_zarzadzanie/z_moje/p_zamowienia_przetwarzane";
-        komunikat("Nie wystarcza towaru zaznaczanego na czerowono. Zmniejsz jego ilość lub anuluj zamówienie", "danger");
+        komunikat("Nie wystarcza towarów zaznaczonych na czerowono. Zmniejsz ich ilość lub odrzuć zamówienie", "danger");
         echo "<a href='{$link_anuluj}' class='btn btn-danger ' style='margin-right:20px;'>Odrzuć zamówienie</a>";
         echo "<a href='{$link_nie}' class='btn btn-info'>Powrót</a>";
     }
