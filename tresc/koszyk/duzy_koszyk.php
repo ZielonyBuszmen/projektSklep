@@ -9,11 +9,17 @@
         return;
     }
     
+    // odswiezamy koszyk
+    refresh_koszyka();
+    
 // operacje na koszyku (usuwanie, dodawanie, odejmowanie)
     // usuwanie przedmiotu z koszyka
     if(isset($_GET['usun']) && $_GET['usun']!="")
-    {
+    {   
         usun_z_koszyka($_GET['usun']);
+        // przekierowanie, by nie było błędów
+        header("Location: index.php?v=tresc/koszyk/duzy_koszyk");
+        return; // gdyby nie przekierowało 
     }
     
     // dodawanie  przedmiotu 

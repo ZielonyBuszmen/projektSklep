@@ -19,10 +19,22 @@
         else // jeśli pola zostały wypełnione, przekazujemy dane do funkcji logującej
         {
             $komunikatto = zaloguj($_POST['login'], $_POST['haslo']);
-            // jeśli logowanie sie powiodło, przekierowywujemy na główną
+            // jeśli logowanie sie powiodło, przekierowywujemy na główną lub na inną stronę
             if (isset($_SESSION['zalogowany']) && $_SESSION['zalogowany'] == TRUE)
-            {
+            {   
+                // jeśli istenieje specjalna strona, na którą musimy przekierować
+                if(isset($_GET['strona_wstecz']))
+                {
+                    $str = $_GET['strona_wstecz'];
+                    if ($str=="kasa") // jeśli logujemy się przy kasie, to wracamy z powrotem na kasę
+                    {
+                        header("Location: index.php?v=tresc/kupowanie/kasa");
+                        return;
+                    }
+                }
+                // jeśli nie było żadnej dodatkowej zmiennej, to przekierowywujemy standardowo na stronę główną
                 header("Location: index.php");
+                return;
             }
         }
     }

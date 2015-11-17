@@ -52,7 +52,7 @@ if (!pracownik()) // jeśli to nie pracownik, przerywamy skrpyt
     <div class="thumbnail">
     <?php
     // dołączmy plik z $_GET['prawa']
-    dolacz_plik("prawa", "{$lox}p_nowe_zamowienia"); 
+    dolacz_plik("prawa", "{$lox}z_nowe/p_nowe_zamowienia"); 
     ?>
     </div>
 </div>

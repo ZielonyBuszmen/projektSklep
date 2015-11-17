@@ -14,13 +14,21 @@
 // wyświetla pasek okruszków
 if (isset($_GET['kat']) && $_GET['kat']!="")
 {
-    okruszki(okruch_index(), okruch_kategoria($_GET['kat']));
+    $cena = "";
+    if (isset($_POST['cena_min']))
+    {
+        $cena="Cena od <b>{$_POST['cena_min']}zł</b> ";
+    }
+    if (isset($_POST['cena_max']))
+    {
+        $cena.=" do <b>{$_POST['cena_max']}zł</b> ";
+    }
+    okruszki(okruch_index(), okruch_kategoria($_GET['kat']), $cena);
 }
 else
 {
     okruszki(okruch_index());
 }
-
 
 // Wyświetla treśc głównej strony z produktami i kategoriami
 ?>

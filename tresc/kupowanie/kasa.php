@@ -11,6 +11,8 @@
     if (!zalogowano())
     {
         komunikat("Przed kupnem zaloguj się lub zarejestruj!", "info");
+        echo "<a href='?v=tresc/logowanie/logowanie&strona_wstecz=kasa' class='btn btn-success btn-lg' style='margin-right:20px;'>Zaloguj się</a>";
+        echo "<a href='?v=tresc/rejestracja/rejestracja' class='btn btn-info btn-lg'>Zarejestruj się</a>";
         return;
     }
     

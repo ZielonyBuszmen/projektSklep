@@ -119,9 +119,8 @@ function dodaj_do_koszyka($id_produktu)
 // usuwamy produkt z koszyka
 function usun_z_koszyka($id_produktu)
 { 
-    //unset($_SESSION['koszyk'][$id_produktu]);
-  // ŹLE DZIAŁA, TRZEBA POMYSLEC, JAK TO ZROBIC
-    
+    unset($_SESSION['koszyk'][$id_produktu]);
+    refresh_koszyka();
 }
 
 // zwraca sumę wartości przedmiotów w koszyku
@@ -153,4 +152,21 @@ function cena_zamowienia($id_zamowienia, $id_usera)
         $cena += $r['cena']*$r['ilosc'];
     }
     return $cena;
+}
+
+// odświeża koszyk, 
+function refresh_koszyka()
+{
+    $i = 0;
+    $temp;
+    foreach($_SESSION['koszyk'] as $idd)
+    {
+        $temp[$i]=$idd;
+        $i++;
+    }
+    usun_koszyk();
+    for($c = 0; $c<count($temp);$c++)
+    {
+        $_SESSION['koszyk'][$c] = $temp[$c];
+    }  
 }
