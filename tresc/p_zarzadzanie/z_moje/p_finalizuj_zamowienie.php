@@ -1,17 +1,16 @@
-skrypt sprawdza, czy można sfinalizować zamówienie. Jeśli tak, robi to:<br>
-odejmuje produkty z bazy, itepe<br>
-<br>
-dane przesylane:
-$_GET['id_zamowienia']
-$_GET['akcja'] = 
-            tak - potwierdzenie i zatwierdzenie zamowienia
-            zablokuj - odrzucenie zamowienia( nadanie mu rangi blocked)
 <?php
-// skrypt finalizuje dane zamówienie.
-// w zależności od podanej zmiennej albo wszystko idzie pomyślnie (tak)
-// albo wszystko jest blokowane (zablokuj)
+/*
+ * Skrypt, ktory sprawdza parę rzeczy i finaluzje zamówienie
+ *  w zależności od podanej zmiennej albo wszystko idzie pomyślnie (tak)
+ *  albo wszystko jest blokowane (zablokuj)
+ * 
+ * Przesyłane dane w GET
+ * $_GET['id_zamowienia']
+ * $_GET['akcja'] =  tak - potwierdzenie i zatwierdzenie zamowienia
+ *                    zablokuj - odrzucenie zamowienia( nadanie mu rangi blocked)
+ */
 
-// jeśli nie zalogowano to przerywamy skrypt
+// jeśli nie zalogowano na pracownika to przerywamy skrypt
 if (!pracownik())
 {
     return;

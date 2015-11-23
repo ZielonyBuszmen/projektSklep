@@ -1,5 +1,7 @@
 <?php
-// wyświetla zamówienia już przetworzone i zamówienia archiwalne (które np zostały anulowane)
+/*
+ * wyświetla zamówienia już przetworzone i zamówienia archiwalne (które np zostały anulowane)
+ */
 
 ?>
 <h2>Zamówienia archiwalne</h2>
@@ -17,7 +19,7 @@
   </thead>
     <tbody>     
 <?php
-    // odpowiednie zapytanie do bazy o zamówienia danego użytkownikapotwierdzenie='now
+    // odpowiednie zapytanie do bazy o zamówienia danego użytkownika
     $wynik = mysql_query("SELECT * FROM sprzedaz INNER JOIN uzytkownicy ON sprzedaz.id_uzytkownika = uzytkownicy.id GROUP BY id_zamowienia HAVING potwierdzenie='tak'");
     while($r = mysql_fetch_assoc($wynik))
     {   // wyświetlenie tabelki z wszystkimi zamówieniami
@@ -53,7 +55,7 @@
   </thead>
     <tbody>     
 <?php
-    // odpowiednie zapytanie do bazy o zamówienia danego użytkownikapotwierdzenie='now
+    // odpowiednie zapytanie do bazy o zamówienia danego użytkownika
     $wynik = mysql_query("SELECT * FROM sprzedaz INNER JOIN uzytkownicy ON sprzedaz.id_uzytkownika = uzytkownicy.id GROUP BY id_zamowienia HAVING potwierdzenie='blocked'");
     while($r = mysql_fetch_assoc($wynik))
     {   // wyświetlenie tabelki z wszystkimi zamówieniami

@@ -1,7 +1,9 @@
 <?php
-// Wyświetla listę nowych zamówień. Pracownik może zająć się jednym z nich
+/*
+ * Wyświetla listę nowych zamówień. Pracownik może zająć się jednym z nich
+ */
 // 
-// jeśli nie zalogowano to przerywamy skrypt
+// jeśli nie zalogowano na pracownika to przerywamy skrypt
 if (!pracownik())
 {
     return;

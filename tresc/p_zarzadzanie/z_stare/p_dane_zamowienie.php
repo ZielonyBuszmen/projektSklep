@@ -1,8 +1,9 @@
 <?php
-// Skrypt wyświetla dane zamówienie (szczegóły) i pozwala nim zarządzać
-// do dokonczenia
+/*
+ * Skrypt wyświetla dane zamówienie (szczegóły), tylko do odczytu
+ */
 
-// jeśli nie zalogowano to przerywamy skrypt
+// jeśli nie zalogowano na pracownika to przerywamy skrypt
 if (!pracownik())
 {
     return;

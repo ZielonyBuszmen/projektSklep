@@ -1,5 +1,7 @@
 <?php 
-// dodaje nowy produkt do asortymentu sklepu
+/*
+ * dodaje nowy produkt do asortymentu sklepu
+ */
      // sprawdzamy, czy formularz został wysłany
     if (isset($_GET['wyslano']) && $_GET['wyslano']=="tak")
     {   // sprawdzamy, czy pola są wypełnione

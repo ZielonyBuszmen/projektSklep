@@ -1,8 +1,11 @@
 <?php
-// Skrypt wyświetla dane zamówienie (szczegóły) i pozwala nim zarządzać
-// zmieniać ilość, itd
+/*
+ * Skrypt wyświetla dane zamówienie (szczegóły) i pozwala nim zarządzać
+ * tzn. zmieniać ilośc produktu.
+ * Wyświetla także przyciski, które umożliwiaja zatwierdzenie lub anulowanie zamówienia
+ */
 
-// jeśli nie zalogowano to przerywamy skrypt
+// jeśli nie zalogowano na pracownika to przerywamy skrypt
 if (!pracownik())
 {
     return;

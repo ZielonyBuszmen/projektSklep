@@ -1,5 +1,7 @@
 <?php
-// skrypt logowania
+/*
+ * skrypt logowania
+ */
 
   // Jeśli zalogowany użytkownik chce się zalogować, to wyświetlamy błąd
     if (zalogowany()) 

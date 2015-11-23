@@ -2,6 +2,10 @@
     <div class="col-md-8">
 <h1> Zadanie </h1>
 <?php
+/*
+ * Wyświetla stronę z informacjami o zadaniu
+ */
+
     $a[] = 'Utwórz skrypt tworzący i wprowadzające dane do układu min 4 tabel (np. mam sklep internetowy więc potrzebuje tabel magazyn (30 rekordów), klienci (5 rekordów), sprzedaz, pracownicy (2 rekordy)).';
     $a[] = 'Na stronie głównej widzimy asortyment sklepu i moduł do logowania. Można zmieniać ilość wyświetlanych produktów (10/20/30 / wszystkie).';
     $a[] = 'Klienci muszą się zarejestrować aby dokonać zakupu w sklepie. (Potwierdzenie rejestracji przesyłane jest na maila i klient musi go zaakceptować).';

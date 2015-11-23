@@ -1,11 +1,14 @@
-<?php // wyświetla logo z promocjami itepe
+<?php 
+/*
+ * wyświetla logo z promocjami.liste produktów, itepe
+ */
 ?>
 <div class="row">
     <div class="col-md-12">
         <div class="thumbnail">
-            <?php
+        <?php
             karuzela();
-            ?>
+        ?>
         </div>
     </div>
   </div> 
@@ -47,15 +50,12 @@ else
        ?>
     <?php
     echo '<br><br>';
-    
-    
-    
+   
     // dodanie przykładowych danych do koszyka
     // dodaj_do_koszyka(2);
     // dodaj_do_koszyka(4);
     
     //echo "<hr>Liczba rzeczy w koszyku: ";
     //echo sprawdz_liczbe_w_koszyku();
-    
     ?>
 </div> 

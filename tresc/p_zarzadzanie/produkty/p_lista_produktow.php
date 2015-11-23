@@ -1,9 +1,13 @@
 <?php
-if (!pracownik()) // jeśli to nie pracownik, przerywamy skrpyt
-{
-    komunikat("Dostęp tylko dla pracownika");
-    return;
-}
+/*
+ * Wświetla listę produktów z bazy. Umożliwia usuwanie i edycję
+ */
+
+    if (!pracownik()) // jeśli to nie pracownik, przerywamy skrpyt
+    {
+        komunikat("Dostęp tylko dla pracownika");
+        return;
+    }
 
     //edytowano=tak&id_produktu=10
     // sprawdzamy, czy podświetlić jakiś rekord w tabeli
@@ -66,6 +70,7 @@ if (!pracownik()) // jeśli to nie pracownik, przerywamy skrpyt
         echo "<td>{$r['ilosc']}</td>";
         echo "<td>".nazwa_kategorii($r['kategoria'])."</td>";
         
+        // adresy do plików z edycją i usuwaniem
         $adres_edytuj = "?v=tresc/p_zarzadzanie/p_panel&prawa=tresc/p_zarzadzanie/produkty/p_edytuj_produkt&id_produktu={$r['id_produktu']}";
         $adres_usun = "?v=tresc/p_zarzadzanie/p_panel&prawa=tresc/p_zarzadzanie/produkty/p_usun_produkt&id_produktu={$r['id_produktu']}";
         echo "<td><a href='{$adres_edytuj}' class='btn btn-default'>Edytuj</a></td>";

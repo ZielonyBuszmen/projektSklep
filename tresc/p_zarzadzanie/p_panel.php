@@ -1,13 +1,16 @@
-<!--- Jest to główny plik panelu zarządzania pracownika
-      Z lewej strony zawiera menu
-      Z prawej strony wyświetlają się podstrony
---->
 <?php
+/*
+ * Jest to główny plik panelu zarządzania pracownika
+ * Z lewej strony zawiera menu
+ * Z prawej strony wyświetlają się podstrony
+ */
+
 if (!pracownik()) // jeśli to nie pracownik, przerywamy skrpyt
 {
     komunikat("Dostęp tylko dla pracownika");
     return;
 }
+    // wyświetlenie okruszków
     echo '<div class="row">';
     okruszki(okruch_index(), "<a href='?v=tresc/p_zarzadzanie/p_panel'>Panel pracownika</a>");
     echo '</div>';
@@ -22,7 +25,7 @@ if (!pracownik()) // jeśli to nie pracownik, przerywamy skrpyt
         komunikat("Trwa przetwarzanie zamówień przez innego pracownika");
         return;
     }
-    // sprawdzamy, czy nasz użytkownik coś przetwarza
+    // sprawdzamy, czy nasz użytkownik coś przetwarza. Jesli tak, to pozwalamy mu przejść, ale wyświetlamy komunikat ostrzegawczy
     if (czy_ja_cos_przetwarzam($_SESSION['id_usera']))
     {
         komunikat("Uwaga! Przetwarzasz zamówienie. Zakończ ten proces jak najszybciej, gdyż inni pracownicy nie mogą zająć się innymi zamówieniami<a href='?v=tresc/p_zarzadzanie/p_panel&prawa=tresc/p_zarzadzanie/z_moje/p_zamowienia_przetwarzane'> Zobacz </a>", "warning");

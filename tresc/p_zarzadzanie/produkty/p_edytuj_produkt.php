@@ -1,6 +1,8 @@
-<!-- Plik, który edytuje dany produkt -->
 <?php
-// sprawdzamy, czy to aby an pewno pracownik
+/*
+ * Edytuje dany produkt podany przez ID w pasku adresu
+ */
+    // sprawdzamy, czy to aby na pewno pracownik
     if (!pracownik()) // jeśli to nie pracownik, przerywamy skrpyt
     {
         komunikat("Dostęp tylko dla pracownika");

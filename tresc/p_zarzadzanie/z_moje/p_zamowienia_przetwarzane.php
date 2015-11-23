@@ -1,5 +1,7 @@
 <?php
-// Wyświetla listę zamówien przetwarzanych przez danego pracownika
+/*
+ * Wświetla listę zamówien przetwarzanych przez danego pracownika
+ */
 ?>
 <h2>Zamówienia przetwarzane teraz przeze mnie</h2>
 <hr>

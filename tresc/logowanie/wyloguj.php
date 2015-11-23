@@ -1,6 +1,8 @@
 <?php
-// funkcja wylogowywująca
-// plik STAND ALONE, nie może być includowany
+/*
+ * funkcja wylogowywująca
+ * plik STAND ALONE, nie może być includowany
+ */ 
 function wyloguj()
 {
     // na wszelki wypadek ustawiamy ważne zmienne sesyjne na przeciwne wartości

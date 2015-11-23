@@ -1,6 +1,8 @@
-<!-- Plik, który usuwa dany produkt z bazy -->
 <?php
-// sprawdzamy, czy to aby na pewno pracownik
+/*
+ * Plik usuwający dany produkt z bazy, podany przez ID
+ */
+    // sprawdzamy, czy to aby na pewno pracownik
     if (!pracownik()) // jeśli to nie pracownik, przerywamy skrpyt
     {
         komunikat("Dostęp tylko dla pracownika");
@@ -13,7 +15,7 @@
         return;
     }
 
-    $id_produktu = $_GET['id_produktu'];
+    $id_produktu = $_GET['id_produktu']; // przypisanie dla wygody
         
     // sprawdzamy, czy został naciśnięty przycisk tak
     if (isset($_GET['wyslano']) && $_GET['wyslano']=="tak")

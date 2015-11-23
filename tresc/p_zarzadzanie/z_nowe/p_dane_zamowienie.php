@@ -1,7 +1,9 @@
 <?php
-// Skrypt wyświetla dane zamówienie (szczegóły)
+/*
+ *  Skrypt wyświetla dane zamówienie (szczegóły)
+ */
 
-// jeśli nie zalogowano to przerywamy skrypt
+// jeśli nie zalogowano na pracownika to przerywamy skrypt
 if (!pracownik())
 {
     return;
@@ -39,11 +41,9 @@ if (isset($_GET['akcja']) && $_GET['akcja']=="wez")
         return; // zatrzymanie skrypu, gdyby przekierowanie sie nie udalo
     }
 }
-    
-    
+
 // tabelka z produkatmi w tym zamówieniu
 ?>
-
 <h2>Zamówienie #<?=$_GET['id_zamowienia']?> <br> <small><?=$tytul?> </small></h2>
 <?=zamowienie_komunikat("nowy", "btn-md")?>
 <hr>
