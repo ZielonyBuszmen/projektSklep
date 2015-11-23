@@ -1,4 +1,7 @@
 <?php
+/*
+ * Funkcje, które wyświetlają pasek okruszków (czyli ścieżkę dostępu)
+ */
 
 // funkcja wyświetla ścieżkę dostępu
 // pobiera dowolną ilość argumentow tekstowych (okruszków)
@@ -35,12 +38,13 @@ function okruch_index()
     return "<a href='index.php'>Strona główna</a>";
 }
 
-// zwraca kategorię
+// zwraca link do kategorii wraz z nazwą
 function okruch_kategoria($id_kategorii)
 {
     return '<a href="?kat='.$id_kategorii.'">'.nazwa_kategorii($id_kategorii).'</a>';
 }
 
+// zwraca link do produktu wraz z nazwą
 function okruch_produkt($id_produktu, $nazwa_produktu)
 {
     return '<a href="?v=tresc/karta_produktu/karta_produktu&id_produktu='.$id_produktu.'">'.$nazwa_produktu.'</a>';

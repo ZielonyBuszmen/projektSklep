@@ -1,5 +1,7 @@
 <?php
-// Plik zawiera funkcje wyświetlające komunikaty z informacjami, błędami, itp
+/*
+ * Plik zawiera funkcje wyświetlające komunikaty z informacjami, błędami, itp
+*/
 
 // wyświetla ogólny komunikat
 // $tresc - treść komunikatu

@@ -1,7 +1,9 @@
 <?php
-// funkcje wyświetlające produkty
+/*
+ *  funkcje wyświetlające produkty
+ */
 
-// wyświetla widget z produktem (np do listy produktów na stronie głównej)
+// wyświetla widget (kafelek) z produktem 
 function w_produkt_kafelek($id)
 {
     $zapytanie = "SELECT * FROM `produkty` WHERE id_produktu={$id}";
@@ -30,7 +32,9 @@ function w_produkt_kafelek($id)
 // wyświetla wszystkie prdukty (kafelki)  z kategorii $id_kategorii
 // jeśli $id_kategorii jest równe 0, wyświetla wszystko
 // $cena_min i max to zakres cenowy. 0 oznacza brak zakresu
-function w_produkty_kafelki($id_kategorii, $cena_min=0, $cena_max=0, $liczba_na_strone = 0, $strona = 0) // &str=0
+// $liczba_na_strone - liczba produktów na stronie, 0 oznacza wszystkie
+// $strona numer aktualnej strony, 0 oznacza brak paginacji
+function w_produkty_kafelki($id_kategorii, $cena_min=0, $cena_max=0, $liczba_na_strone = 0, $strona = 0)
 {
     // jeżeli $id_kategorii jest rowne 0, wyświetlamy wszystko
     if ($id_kategorii==0) $zapytanie = "FROM `produkty` WHERE cena >= {$cena_min}";
@@ -77,12 +81,6 @@ function w_produkty_kafelki($id_kategorii, $cena_min=0, $cena_max=0, $liczba_na_
             . "href='?v=tresc/koszyk/dodaj_do_koszyka&id_produktu={$r['id_produktu']}'>" 
             . "Dodaj do koszyka</a>"; // przycisk do dodawania do koszyka
         echo '</div>';
-           
-             // TO SIE MOZE ROZWALIC
-             // PRZEZ źle zamknięte </div>
-             // być może powunny być wyżej
-     
-        //if ($i % 3 == 0) echo '</div><div class="row">';
         $i++;  
          
         echo '</div>' // to te divy, co mogą robić problemy
@@ -95,6 +93,7 @@ function w_produkty_kafelki($id_kategorii, $cena_min=0, $cena_max=0, $liczba_na_
     // jeśli możemy podzielić wyniki na strony, to wyświelamy odpowiednią tabelkę
     if ($paginacja)
     {
+        // UWAGA! Gdy ten blok kodu jest wykonywany, zakładamy, że $_GET['str'] istnieje.
         // obliczamy liczbę stron, która ma być wyświetlana
         $liczba_stronic = $liczba_rekordow/$liczba_na_strone;
         $aa2 = $liczba_rekordow%$liczba_na_strone; // sprawdzamy, czy został wynik z dzielenia
@@ -139,7 +138,7 @@ function w_produkty_kafelki($id_kategorii, $cena_min=0, $cena_max=0, $liczba_na_
     }
 }
 
-// zwraca liczbę produktów w sklepie
+// zwraca liczbę produktów w sklepie/magazynie (liczbę wpisów, a nei ilość danego produktu)
 function liczba_produktow()
 {
     $wynik = mysql_query("SELECT * FROM produkty");
@@ -157,7 +156,7 @@ function nazwa_kategorii($id_kategorii)
     }
 }
 
-//wyświetla karuzelę z promocjami jak w lydlu
+//wyświetla karuzelę z promocjami jak w lydlu i w biedronce
 function karuzela()
 {
 echo '<div id="myCarousel" class="carousel slide" data-ride="carousel">

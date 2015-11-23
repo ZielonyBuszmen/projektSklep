@@ -25,8 +25,40 @@ Zmienne sesyjne
     - p - pracownik
     - blocked - zablokowany
 
-  TYPY potwierdzen:
+  TYPY potwierdzen zamówienia:
+    - nowy - zamówienie nowe, dopiero co złożone
+    - czeka - dany pracownik zajmuje się tym zamówieniem (przetwarza je)
+    - tak - zamówienie zatwierdzone przez pracownika i wysłane
+    - blocked - zamowienie anulowane
 
+
+Struktura plików i katalogów
+@ - foldder
+# - plik
+
+@ baza
+    # polaczenie.php
+    # *.sql
+    # stworz_baze.php
+@ bootstrap
+@ funkcje
+@ img
+    @ karuzela
+    @ produkty
+@ tresc
+    @ karta_produktu
+    @ koszyk
+    @ kupowanie
+    @ lista_produktów
+    @ logowanie
+    @ p_zarzadzanie
+        @ produkty
+        @ z_moje
+        @ z_nowe
+        @ z_stare
+    @ rejestracja
+    @ u_zamowienia
+    
 
 
 Tabele z bazy danych
@@ -42,11 +74,6 @@ SQLy i inne bajery
 
 
 
-
-
 DO ZROBIENIA:
-    - rejestracja
-    - banner aka slider
-    - zdjęcia produktów, w tym soku grzybowego
-    - poprawić kartę produktu
+    - zdjęcia produktów
     - sortowanie z bara

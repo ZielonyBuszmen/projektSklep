@@ -1,5 +1,7 @@
 <?php
-    // plik zawiera nagłówekv (górną belkę) strony wyświetlany na każdej podstronie
+    /*
+     * Plik zawiera nagłówekv (górną belkę) strony wyświetlany na każdej podstronie
+     */
 ?>
 <div class="row" id="naglowek">
  <nav class="navbar navbar-default navbar-fixed-top">

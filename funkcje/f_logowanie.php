@@ -1,5 +1,7 @@
 <?php
-// Zawiera funkcje do logowania i wylogowywania użytkowników
+/*
+ * Zawiera funkcje do logowania i wylogowywania użytkowników
+ */
 
 // funkcja zwraca TRUE, jeśli użytkownik jest zalogowany. W przeciwnym wypadku FALSE
 function zalogowany()
@@ -59,7 +61,6 @@ function user()
 function klient() { return user(); }
 
 
-
 // funkcja loguje użytkownika, przyjmuje $login i $haslo
 // jeśli $_SESSION['zalogowany'] == TRUE, znaczy że zalogowano. W przeciwnym wypadku nie
 // w przeciwnym wypadku zwraca komunikat o błędzie lub niepowodzeniu
@@ -116,7 +117,7 @@ function zaloguj($login, $haslo)
     return $bledy;
 }
 
-
+// funkcja zwraca Imię i nazwisko użytkownika podanego przez parametr $id_usera
 function imie_usera($id_usera)
 {
     $wynik = mysql_query("SELECT * FROM uzytkownicy WHERE id={$id_usera}");

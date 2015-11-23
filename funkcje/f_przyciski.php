@@ -1,6 +1,8 @@
 <?php
-    //plik zawiera funkcje tworzące "inteligentne" przyciski.
-    //inteligentny przycisk to taki, który jest zaznaczony, jeśli został kliknięty
+/*
+ * plik zawiera funkcje tworzące "inteligentne" przyciski.
+ * inteligentny przycisk to taki, który jest zaznaczony, jeśli został kliknięty
+ */
 
 // standardowy przycisk.
 // $adres - pierwszy argument - adres, do którego odwołuje się przycisk

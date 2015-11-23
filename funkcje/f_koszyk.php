@@ -1,5 +1,7 @@
 <?php
-// zawiera funkcje związane z koszykiem
+/*
+ * zawiera funkcje związane z koszykiem
+ */
 
 // wyświetla miniaturowy spis przedmnitów w koszyku
 // spis wyświetla się jako DROPDOWN na górnej belce
@@ -154,7 +156,7 @@ function cena_zamowienia($id_zamowienia, $id_usera)
     return $cena;
 }
 
-// odświeża koszyk, 
+// odświeża koszyk (czyli prebudowywuje jego tablicę, by była jak nowa) 
 function refresh_koszyka()
 {
     $i = 0;
