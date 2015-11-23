@@ -1,6 +1,9 @@
-
 <?php
-// komunikat po dodaniu produktu do koszyka
+/*
+ *  wyświetla kartę produktu. ID produktu jest podawane przez pasek adresu
+ */
+
+    // komunikat po dodaniu produktu do koszyka
     if (isset($_GET['dodano_do_koszyka']) && $_GET['dodano_do_koszyka']=="tak")
     {
         komunikat ("Produkt został pomyślnie dodany do koszyka.", "success");
@@ -9,9 +12,6 @@
     {
         komunikat ("Przedmiot nie może zostać dodany do koszyka. (Nie ma więcej w magazynie)", "warning");
     }
-
-
-// wyświetla kartę produktu. ID produktu jest podawane przez pasek adresu
 
     // sprawdzamy, czy podano id_produktu. Jeśli nie to wywalamy komunikat o błędzie
     if (!isset($_GET['id_produktu']) && $_GET['id_produktu']=="")
@@ -30,7 +30,6 @@
       echo '<div class="row">';
         okruszki(okruch_index(), okruch_kategoria($r['kategoria']), okruch_produkt($r['id_produktu'], $r['nazwa']));
         echo '</div>';
-        //echo '<div class="col-md-12">';
         
         echo "<div class='row'>"
                 . "<div class='thumbnail'>"
@@ -50,8 +49,6 @@
                 . "<div id='karta_kafel' class='col-md-2 thumbnail'>"
                       . "<a class='btn btn-default' href='?v=tresc/koszyk/dodaj_do_koszyka&id_produktu={$r['id_produktu']}'>Dodaj do koszyka</a>"
                 . "</div>"
-            . "</div>";
-                      
-       // echo '</div>';
+            . "</div>";                     
     }  
 ?>

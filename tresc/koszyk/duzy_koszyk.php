@@ -1,6 +1,8 @@
 <?php
-// wyświetla pełną wersję koszyk z produktami
-// wyświetlamy listę rzeczy z koszyka w ładnej tabelce z przyciskami do zmienienia ilości, usuniecia przedmiotu, itd
+/*
+ * Wyświetla pełną wersję koszyk z produktami
+ * wyświetlamy listę rzeczy z koszyka w ładnej tabelce z przyciskami do zmienienia ilości, usuniecia przedmiotu, itd
+ */
 
 // jeśli koszyk jest pusty, wyświetlamy stosowny komunikat i przerywamy skrypt
  if(!isset($_SESSION['koszyk']) || @$_SESSION['koszyk'][0]['id_produktu']=="")
@@ -22,7 +24,7 @@
         return; // gdyby nie przekierowało 
     }
     
-    // dodawanie  przedmiotu 
+    // dodawanie przedmiotu (+1 do ilości)
     if (isset($_GET['dodaj']) && $_GET['dodaj']!="")
     {   // sprawdzamy, czy można dodać przedmiot
         if (sprawdz_czy_mozna_dodac($_SESSION['koszyk'][$_GET['dodaj']]['id_produktu']))
@@ -30,7 +32,7 @@
             ++$_SESSION['koszyk'][$_GET['dodaj']]['ilosc'];
         }
     }
-    // odejmowanie przedmiotu
+    // odejmowanie przedmiotu (-1 do ilości)
      if (isset($_GET['odejmij']) && $_GET['odejmij']!="")
     {   //sprawdzamy, czy można odjąć przedmiot
         if ($_SESSION['koszyk'][$_GET['odejmij']]['ilosc'] > 1)
@@ -39,7 +41,7 @@
         }
     }
     
-    
+    // wyświetlenie okruszków
     echo '<div class="row">';
     okruszki(okruch_index(), "<a href='?v=tresc/koszyk/duzy_koszyk'>Cały koszyk</a>");
     echo '</div>';
@@ -93,7 +95,7 @@
         echo "<td>{$przedmiot['cena']} zł </td>";
         echo "<td> {$przycisk_odejmij} {$przedmiot['ilosc']} {$przycisk_dodaj}</td>";
         echo "<td>".$przedmiot['ilosc']*$przedmiot['cena']." zł </td>";
-        echo "<td><a href='{$usun}'>Usun</a></td>"; // ---- USUN NIE DZIALA
+        echo "<td><a href='{$usun}'>Usun</a></td>"; 
         echo '</tr>';
     }
     // zakończenie tabeli

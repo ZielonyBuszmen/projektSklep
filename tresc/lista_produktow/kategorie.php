@@ -1,27 +1,28 @@
 <?php
-// wyświetla liste kategorii, tak, by po kliknięciu dalo się filtrować wyniki
+/*
+ * Wyświetla liste kategorii, tak, by po kliknięciu dalo się filtrować wyniki
+ * Dodatkowo wyświetla możliwośc ustawienia zakresu cen oraz podzieleniu wyników na strony
+ */
 
-// zmienne "huby"
-if (isset($_GET['kat']) && $_GET['kat']!="")
-{
-    $h_kat = $_GET['kat'];
-}
-else $h_kat = 0;
+    // zmienne "huby"
+    // przypisujemy odpowiednie zmienne, by nie znikły nam opcje filtrowania po przejściu na inne podstrony
+    if (isset($_GET['kat']) && $_GET['kat']!="")
+    {
+        $h_kat = $_GET['kat'];
+    }
+    else $h_kat = 0;
 
+    if (isset($_GET['str']) && $_GET['str']!="")
+    {
+        $h_str = $_GET['str'];
+    }
+    else $h_str = 0;
 
-if (isset($_GET['str']) && $_GET['str']!="")
-{
-    $h_str = $_GET['str'];
-}
-else $h_str = 0;
-
-
-if (isset($_GET['liczba_na_strone']) && $_GET['liczba_na_strone']!="")
-{
-    $h_liczba_na_strone = $_GET['liczba_na_strone'];
-}
-else $h_liczba_na_strone = 0;
-
+    if (isset($_GET['liczba_na_strone']) && $_GET['liczba_na_strone']!="")
+    {
+        $h_liczba_na_strone = $_GET['liczba_na_strone'];
+    }
+    else $h_liczba_na_strone = 0;
 ?>
 
 <!-- Liczba przedmiotów na stronie --->
@@ -43,10 +44,10 @@ while($r = mysql_fetch_assoc($wynik))
 {
     if (@$_GET['kat']==$r['id_kategorii'])
     {
-        echo '<li class="active">';
+        echo '<li class="active">'; // jeżeli naciśnięto dany przycisk, to jest on podświetlony
     }
     else echo '<li>';
-    // link
+    // tworzymy link
     $cc = "?liczba_na_strone={$h_liczba_na_strone}&str=1&kat={$r['id_kategorii']}";
     echo '<a href="'.$cc.'">';
     echo $r['nazwa'];

@@ -1,5 +1,7 @@
 <?php
-// mały plik, który wywołuje odpowiednie funkcje dodające przedmiot do koszyka
+/*
+ *  mały plik, który wywołuje odpowiednie funkcje dodające przedmiot do koszyka
+ */
 
     // jeśli nie dano nam id, które ma zostać dodane, zakańczamy skrypt i nic nie robimy
     if (!isset($_GET['id_produktu'])) return;

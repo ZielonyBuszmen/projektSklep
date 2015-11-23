@@ -1,5 +1,7 @@
 <?php
-// wyświetla kasę z podsumowaniem i potwierdzeniem zakupu
+/*
+ *  wyświetla kasę z podsumowaniem i potwierdzeniem zakupu
+ */
 
 // jeśli koszyk jest pusty, wyświetlamy stosowny komunikat i przerywamy skrypt
  if(!isset($_SESSION['koszyk']) || @$_SESSION['koszyk'][0]['id_produktu']=="")
@@ -8,6 +10,7 @@
         return;
     }
     
+    // sprawdzamy, czy na pewno zalogowano. Jeśli nie, to wyświetlamy przyciski do logowania i rejestracji
     if (!zalogowano())
     {
         komunikat("Przed kupnem zaloguj się lub zarejestruj!", "info");
@@ -16,6 +19,7 @@
         return;
     }
     
+    // wyświetlamy okruchy
     echo '<div class="row">';
     okruszki(okruch_index(), "<a href='?v=tresc/koszyk/duzy_koszyk'>Cały koszyk</a>", "<a href='?v=tresc/kupowanie/kasa'>Potwierdzenie zamówienia</a>");
     echo '</div>';
@@ -38,11 +42,11 @@
 
 <?php
     $adres_pliku = "?v=tresc/koszyk/duzy_koszyk";     
-
+    
+    // wyświetlenie w pętli zawartości koszyka, ale bez przycisków umożliwiających zmiany
     for($i = 0; $i<sprawdz_liczbe_w_koszyku(); $i++)
     {
         $przedmiot = $_SESSION['koszyk'][$i];
-        
         
         echo '<tr>';
         echo "<td>{$przedmiot['id_produktu']}</td>";

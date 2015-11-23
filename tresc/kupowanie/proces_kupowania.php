@@ -1,7 +1,10 @@
 <?php
-// plik stand-alone. "robi kupowanie", następnie przekierowuje do strony z potwierdzeniem.
-
-// Klient kupując tylko "rezerwuje" (ee?). Liczba na magazynie się nie zmienia, tylko jest dodawany wpis do kupowanych
+/*
+ * plik stand-alone. "robi kupowanie", następnie przekierowuje do strony z potwierdzeniem.
+ * 
+ * Klient kupując tylko "rezerwuje". Liczba na magazynie się nie zmienia, 
+ * tylko jest dodawany wpis do kupowanych
+ */
 
 // Sprawdzamy, czy istenieje koszyczek
 if(!isset($_SESSION['koszyk']) || @$_SESSION['koszyk'][0]['id_produktu']=="")
@@ -42,8 +45,8 @@ usun_koszyk();
 // przekierowanie do strony o potwiedzeniu
 header("Location: index.php?v=tresc/kupowanie/rozrachunek&komunikat=ok");
     
-// mała ściąga pomocnicza    
-/*        
+// mała ściąga pomocnicza, jakie pola to jakie zmienne
+/* 
 id_zamowienia - $id_zamowienia 
 id_uzytkownika  - $_SESSION['id_usera'];
 id_produktu - $przedmiot['id_produktu']
@@ -52,5 +55,4 @@ data - $data
 typ_wysylki - "poczta polska"
 potwierdzenie - "nowy"
 id_pracownika_co_weryfikowal - NULL
-
  */
