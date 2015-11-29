@@ -4,13 +4,10 @@
     $uzytkownik = 'root';
     $haslo = '';
     
-    $plik = ''; // plik z zrzutem bazy danych z SQL
+    $plik = 'projektsklep6.sql'; // plik z zrzutem bazy danych z SQL
     $nazwa_bazy = "projektsklep"; // nazwa bazy danych
 
-// NA RAZIE NIE MA KONKRETNEJ BAZY ANI PLIKU, WIĘC SKRYPT JEST TUTAJ ZATRZYMYWANY
-    return;
-    
-    
+   
     
 // ustanawiamy połączenie z bazą, jak się nie łączy, wyświetlamy błąd
 $connection = @mysql_connect($adres, $uzytkownik, $haslo);
@@ -40,4 +37,4 @@ $handle = fopen($plik, 'r');
 importSQL($handle);
 
 // wszystko sie udalo, przekierowanie na stronę z info
-header("Location: index.php");
+header("Location: baza_nie_dziala.php?stworzono=tak");
