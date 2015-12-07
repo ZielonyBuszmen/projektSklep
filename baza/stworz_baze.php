@@ -4,7 +4,7 @@
     $uzytkownik = 'root';
     $haslo = '';
     
-    $plik = 'projektsklep6.sql'; // plik z zrzutem bazy danych z SQL
+    $plik = 'projektsklep9.sql'; // plik z zrzutem bazy danych z SQL
     $nazwa_bazy = "projektsklep"; // nazwa bazy danych
 
    
